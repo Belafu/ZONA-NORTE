@@ -18,7 +18,7 @@
   <div class="container">
   <h2 class="text-center text-lg-left">Completá tus datos</h2>
 
-  <form action="entrada.html"><!--A donde va ir cuando presione ENviar-->
+  <form action="home.php"><!--A donde va ir cuando presione ENviar-->
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
             <label for="nombre">Nombre</label><!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
@@ -67,7 +67,7 @@
                 De acuerdo a los términos y condiciones
               </label>
               <div class="invalid-feedback">
-                  You must agree before submitting.
+                  Usted debe estar de acuerdo antes de enviar.
               </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/styleHome.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -10,9 +10,12 @@
   <body>
     <div class="container">
       <section class="barra">
-
+        <ul>
+          <li><a  href="registro.php">registro</a></li>
+          <li><a  href="login.html">login</a></li>
+        </ul>
       </section>
-</div>
+    </div>
 <div class="container">
   <div id="carouselExampleFade" class="carro carousel slide carousel-fade" data-ride="carousel">
 <div class="carousel-inner">
