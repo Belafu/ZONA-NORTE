@@ -1,0 +1,54 @@
+*{
+box-sizing: border-box;
+}
+ul,ol{
+  padding: 0;
+}
+li{
+  list-style-type: none;
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+.barra{
+  padding: 30px;
+  background-color: black;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+.a{
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: 20px;
+}
+.product{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+.info{
+  border-top: 2px solid black;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+.footer{
+  background-color: black;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.carro{
+  background-color: black;
+}
+.fotos-marque{
+  margin-bottom: 20px;
+  padding: 5px;
+}
