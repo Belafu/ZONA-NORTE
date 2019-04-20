@@ -6,15 +6,13 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styleRegistro.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/styleRegistro.css">
     <title>REGISTRO</title>
   </head>
   <body>
-  <header>
-    <h1>LOGO: a la izquierda   //A la derecha algun bottom</h1>
-    <h2>Completa tus datos//movil</h2>
-  </header>
+  <?php include("partes/header.php"); ?>
 
   <div class="container">
   <h2 class="text-center text-lg-left">Completá tus datos</h2>

@@ -4,43 +4,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/styleHome.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title>Home</title>
   </head>
   <body>
+    <?php include("partes/header.php"); ?>
+
     <div class="container">
-      <section class="barra">
-        <ul>
-          <li><a  href="registro.php">registro</a></li>
-          <li><a  href="login.html">login</a></li>
-        </ul>
-      </section>
+        <div id="carouselExampleFade" class="carro carousel slide carousel-fade" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="https://fakeimg.pl/350x200/ff0000,128/000,255" class="d-block w-100" alt="uno">
+            </div>
+            <div class="carousel-item">
+            <img src="https://fakeimg.pl/350x200/ff0000,128/000,255" class="d-block w-100" alt="dos">
+            </div>
+            <div class="carousel-item">
+            <img src="https://fakeimg.pl/350x200/ff0000,128/000,255" class="d-block w-100" alt="tres">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
     </div>
-<div class="container">
-  <div id="carouselExampleFade" class="carro carousel slide carousel-fade" data-ride="carousel">
-<div class="carousel-inner">
-<div class="carousel-item active">
-<img src="https://fakeimg.pl/350x200/ff0000,128/000,255" class="d-block w-100" alt="uno">
-</div>
-<div class="carousel-item">
-<img src="https://fakeimg.pl/350x200/ff0000,128/000,255" class="d-block w-100" alt="dos">
-</div>
-<div class="carousel-item">
-<img src="https://fakeimg.pl/350x200/ff0000,128/000,255" class="d-block w-100" alt="tres">
-</div>
-</div>
-<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-<span class="sr-only">Next</span>
-</a>
-</div>
-</div>
 
 <div class="container">
   <article class="product">

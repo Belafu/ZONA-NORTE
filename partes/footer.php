@@ -1,9 +1,9 @@
   <footer>
-    <div class="caja1-footer">
-      <p class="texto-footer">Lorem ipsum dolor sit amet, consectetur adipisffff ffffffff ffffffffs ffffffff ffffffff ffffffffffffff.</p>
+    <div class="caja1-footer d-none d-sm-block">
+      <p class="texto-footer">Contactanos: <br> telefono: 1123452244 <br>Ubicanos en: <br>Calle los Olvidados de Dios 666 </p>
     </div>
-    <div class="caja2-footer">
-      <p class="texto-footer">caja2 ipisffffff ffffffff ffffffsfffffff ffffffff ffffffffff</p>
+    <div class="caja2-footer d-none d-sm-block">
+      <p class="texto-footer">Contactanos: <br> telefono: 1123452244 <br>Ubicanos en: <br>Calle los Olvidados de Dios 666 </p>
     </div>
     <div class="social">
       <div class="text-social">
