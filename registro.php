@@ -19,44 +19,45 @@
   <div class="container">
   <h2 class="text-center text-lg-left">Completá tus datos</h2>
 
-  <form action="home.php"><!--A donde va ir cuando presione ENviar-->
+  <form action="mostrarDatossCapturados.php" method="post"><!--A donde va ir cuando presione ENviar-->
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
             <label for="nombre">Nombre</label><!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
-            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" required>
+            <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre" required>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="nombre">Apellido</label>
-            <input type="text" class="form-control" id="inputApellido" placeholder="Apellido" required>
+            <input type="text" class="form-control" id="inputApellido" name="apellido" placeholder="Apellido" required>
           </div>
       </div>
 
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
             <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email" required>
+            <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email" required>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="inputPassword4">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" required>
+            <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password" required>
           </div>
       </div>
 
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
-                <label for="exampleFormControlSelect1">Pais</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                <option>Argentina</option>
-                <option>Urugays</option>
-                <option>Brasil</option>
-                <option>Chile</option>
+                <label for="pais">Pais</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="pais">
+                <option value="argentina">Argentina</option>
+                <option value="urugai">Urugays</option>
+                <option value="brasil">Brasil</option>
+                <option value="chile">Chile</option>
               </select>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
-              <label for="inputState">Ciudad</label>
-              <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
+              <label for="ciudad">Ciudad</label>
+              <select id="inputState" class="form-control" name="ciudad">
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="La Rioja">La Rioja</option>
+                <option value="Acassuso">Acassuso</option>
               </select>
           </div>
       </div>
