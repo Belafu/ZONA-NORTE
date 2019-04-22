@@ -14,10 +14,6 @@ a{
 }
 
 
-header{/*Se puede eliminar cuandon el header este echo en un php*/
-  background-color: rgb(0, 255, 240);
-  margin-bottom: 40px;
-}
 .form-check, .btn-formulario{
     margin-left: 20px;
 }

@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/stylelogin.css">
+    <link rel="stylesheet" href="css/styleLogin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title></title>
@@ -14,14 +14,14 @@
     <div class="login-page">
       <div class="form">
         <form class="login-form">
-          <p><!--No se porque hay una etiqueta p suelta,no usaste ni boostrap ni flex para la parte responsive si quiera hay un @ en el css-->
             <label for="Usuario"></label>
              <input id="usuario" name="usuario" type="text" placeholder="Usuario"/>
              <label for="pass"></label>
              <input id="pass" type="password" name="pass" placeholder="Contraseña"/>
              <input type="checkbox" name="" value="">
+             <label for=""></label>
           <button>ingresar</button>
-          <p class="message">Aun no estas registrado?<a class="reg-button" href="#"> Registrarse</a></p>
+          <p class="message">Aun no estas registrado?<a class="reg-button" href="registro.php"> Registrarse</a></p>
         </form>
       </div>
     </div>
