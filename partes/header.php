@@ -6,9 +6,8 @@
     </label>
 
     <ul class="menu-header">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="login.html">Login</a>
+      <a href="home.php">Home</a>
+      <a href="login.php">Login</a>
       <a href="registro.php">Registro</a><!--Recordar que es como si estubiera parado en el home o en el register-->
       <a href="#">Contact</a>
       <label for="chk" class="hide-menu-btn">

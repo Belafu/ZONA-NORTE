@@ -53,10 +53,12 @@ header{
 
 
 @media screen and (max-width:800px) {
+
   .show-menu-btn,.hide-menu-btn{
     display: block;
   }
   .menu-header{
+    z-index: 100;/*esta es la line aque arreglo todo*/
     position: fixed;
     width: 100%;
     height: 100vh;

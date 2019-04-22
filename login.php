@@ -14,7 +14,7 @@
     <div class="login-page">
       <div class="form">
         <form class="login-form">
-          <p>
+          <p><!--No se porque hay una etiqueta p suelta,no usaste ni boostrap ni flex para la parte responsive si quiera hay un @ en el css-->
             <label for="Usuario"></label>
              <input id="usuario" name="usuario" type="text" placeholder="Usuario"/>
              <label for="pass"></label>
