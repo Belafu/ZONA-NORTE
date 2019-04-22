@@ -13,7 +13,7 @@
     <?php include("partes/header.php"); ?>
     <div class="login-page">
       <div class="form">
-        <form class="login-form">
+        <form class="login-form" action="mostrarDatossCapturados.php" method="post">
             <label for="Usuario"></label>
              <input id="usuario" name="usuario" type="text" placeholder="Usuario"/>
              <label for="pass"></label>
