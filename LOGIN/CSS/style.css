@@ -1,0 +1,21 @@
+*{
+  box-sizing: border-box;
+  }
+body{
+  background-color:rgba(129, 33, 149, 0.34);
+  font-family: arial;
+}
+
+/*formulario login*/
+.login-form{
+  background-color: rgb(65, 218, 72);
+}
+.campo-login, .checkbox-login, .button-ingresar {
+  display: block;
+}
+.recordarme{
+  overflow: hidden;
+}
+.recordarme-login, .checkbox-login{
+  float: left;
+}
