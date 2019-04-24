@@ -7,15 +7,40 @@ body{
 }
 
 /*formulario login*/
+.container{
+  margin-top: 80px;
+}
 .login-form{
   background-color: rgb(65, 218, 72);
+  padding: 30px 20px;
 }
 .campo-login, .checkbox-login, .button-ingresar {
   display: block;
+}
+.campo-login, .button-ingresar,.recordarme{
+margin: 0 auto;
+width: 80%;
+margin-bottom: 15px;
+}
+.recordarme-login{
+  margin-left: 10px;
+}
+.checkbox-login{
+  margin-top: 5px;
 }
 .recordarme{
   overflow: hidden;
 }
 .recordarme-login, .checkbox-login{
   float: left;
+}
+
+
+@media(min-width:768px){
+  .campo-login, .button-ingresar,.recordarme{
+  width: 300px;
+  }
+  .login-form{
+    padding: 50px 50px;
+  }
 }
