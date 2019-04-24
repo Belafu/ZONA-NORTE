@@ -1,0 +1,66 @@
+*{
+box-sizing: border-box;
+}
+ul,ol{
+  padding: 0;
+}
+li{
+  list-style-type: none;
+}
+a{
+  color: #000;
+  text-decoration: none;
+}
+
+
+.barra{
+  padding: 30px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+.a{
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: 20px;
+}
+.product{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+.info{
+  border-top: 2px solid black;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-right: 5px;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.card{
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;}
+
+.carro{
+  background-color: black;
+}
+.fotos-marque{
+  margin-bottom: 20px;
+  padding: 5px;
+}
+img{
+  margin-bottom: 20px;
+}
+@media (min-width: 768px){
+  .info{
+    flex-direction: row;
+  }
+}
