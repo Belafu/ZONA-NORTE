@@ -14,40 +14,50 @@
     <?php include("partes/header.php"); ?>
 
     <div class="container">
-        <div id="carouselExampleFade" class="carro carousel slide carousel-fade" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img src="https://fakeimg.pl/350x200/ff0000,128/000,255" class="d-block w-100" alt="uno">
-            </div>
-            <div class="carousel-item">
-            <img src="https://fakeimg.pl/350x200/ff0000,128/000,255" class="d-block w-100" alt="dos">
-            </div>
-            <div class="carousel-item">
-            <img src="https://fakeimg.pl/350x200/ff0000,128/000,255" class="d-block w-100" alt="tres">
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+      <section "carro">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://fakeimg.pl/550x300/" alt="First slide">
     </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://fakeimg.pl/550x300/" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://fakeimg.pl/550x300/" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+
+      </section>
+      </div>
+
 
 <div class="container">
   <article class="product">
-    <img src="https://fakeimg.pl/350x300/">
-    <img src="https://fakeimg.pl/350x300/">
-    <img src="https://fakeimg.pl/350x300/">
+    <img src="https://fakeimg.pl/300x300/" class="img-fluid" alt="Responsive image">
+    <img src="https://fakeimg.pl/300x300/" class="img-fluid" alt="Responsive image">
+    <img src="https://fakeimg.pl/300x300/" class="img-fluid" alt="Responsive image">
+
   </article>
 </div>
 
 <div class="container">
   <section class="info">
-    <div class="card" style="width: 18rem;">
+    <div class="card">
     <img src="https://fakeimg.pl/350x200/">
     <div class="card-body">
       <h5 class="card-title">Mouse Gamer</h5>
@@ -55,7 +65,7 @@
       <a href="#" class="btn btn-primary">Ver mas</a>
       </div>
       </div>
-      <div class="card" style="width: 18rem;">
+      <div class="card">
       <img src="https://fakeimg.pl/350x200/">
       <div class="card-body">
         <h5 class="card-title">Mouse Gamer</h5>
@@ -63,7 +73,7 @@
         <a href="#" class="btn btn-primary">Ver mas</a>
         </div>
         </div>
-        <div class="card" style="width: 18rem;">
+        <div class="card">
         <img src="https://fakeimg.pl/350x200/">
         <div class="card-body">
           <h5 class="card-title">Mouse Gamer</h5>

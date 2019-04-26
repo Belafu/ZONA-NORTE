@@ -14,13 +14,15 @@
     <div class="login-page">
       <div class="form">
         <form class="login-form" action="mostrarDatossCapturados.php" method="post">
-            <label for="Usuario"></label>
-             <input id="usuario" name="usuario" type="text" placeholder="Usuario"/>
+             <label for="Usuario"></label>
+             <input class="campo-login" id="usuario" name="usuario" type="text" placeholder="Usuario"/>
              <label for="pass"></label>
-             <input id="pass" type="password" name="pass" placeholder="Contraseña"/>
-             <input type="checkbox" name="" value="">
-             <label for=""></label>
-          <button>ingresar</button>
+             <input class="campo-login" id="pass" type="password" name="pass" placeholder="Contraseña"/>
+              <div class="recordar">
+                <input class="checkbox-login" type="checkbox" name="" value="">
+                <label class="texto-recordar" for="">Recordarme</label>
+              </div>
+             <button>ingresar</button>
           <p class="message">Aun no estas registrado?<a class="reg-button" href="registro.php"> Registrarse</a></p>
         </form>
       </div>

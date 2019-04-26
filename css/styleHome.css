@@ -12,12 +12,6 @@ a{
   text-decoration: none;
 }
 
-
-.barra{
-  padding: 30px;
-  margin-bottom: 15px;
-  margin-top: 5px;
-}
 .a{
   color: white;
   text-decoration: none;
@@ -29,26 +23,37 @@ a{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  flex-direction: row;
-  margin-bottom: 30px;
-}
-.info{
-  border-top: 2px solid black;
-  padding-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex-direction: row;
-  margin-bottom: 30px;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border: 2px solid black;
+  padding: 10px;
+  padding-bottom: 1px;
 }
 
-.carro{
-  background-color: black;
+.info{
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-right: 5px;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 .fotos-marque{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 5px;
 }
 img{
   margin-bottom: 20px;
+}
+.card{
+  padding: 8px 8px;
+}
+@media (min-width: 768px){
+  .info{
+    flex-direction: row;
+  }
+  .product{
+    flex-direction: row;
+
 }
