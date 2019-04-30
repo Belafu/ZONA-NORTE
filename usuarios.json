@@ -1,0 +1,39 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nombre": "Ale",
+            "email": "abc@gmail.com",
+            "username": "Alecito2020",
+            "password": "1234"
+        },
+        {
+            "id": 2,
+            "nombre": "Karly",
+            "email": "asd@gmail.com",
+            "username": "Karlytrom",
+            "password": "7894"
+        },
+        {
+            "id": 3,
+            "nombre": "Gianpier",
+            "email": "abc@gmail.com",
+            "username": "asd",
+            "password": "$2y$10$2MKUKyk2fYa0JC3gwtO5rO7AElmM\/S6DnLHVrDCWsJQuOTdefEHla"
+        },
+        {
+            "id": 4,
+            "nombre": "GianpierFeepp",
+            "email": "lizalaaniquiladora@gmail.com",
+            "username": "uuu123",
+            "password": "$2y$10$6Oz\/Tb4Sh6py9F3jFUGIM.ggnHa7KpEyIaFpm6bNTDKzYn7Mws4RW"
+        },
+        {
+            "id": 5,
+            "nombre": "qsdea",
+            "email": "gianpiermaster123@hotmail.com",
+            "username": "uuu123q",
+            "password": "$2y$10$5ZGzdo7ao9OQSOfsCsv9.e9gIxTyYwalf6hR4lif28fbsJ5pDmdC6"
+        }
+    ]
+}

@@ -1,7 +1,38 @@
+<?php
+include "funciones.php";
+$errores = [];
+
+$nombreOk='';
+$emailOk='';
+$usernameOk='';//hay que validar que no haya otro con el mismo username
+//$passwordOk='';
+
+if ($_POST) {
+  $errores = validarRegistro($_POST);
+
+  $nombreOk = trim($_POST["nombre"]);
+  $emailOk = trim($_POST["email"]);
+  $usernameOk = trim($_POST["username"]);
+  //$passwordOk = $_POST["password"];
+  if(empty($errores)){//NO EXISTE O  ES VACIO
+      $usuario = armarUsuario();
+      guardarUsuario($usuario);
+      header('Location: felicitaciones.php');
+      //subir imagen;
+      //$ext= pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+      //move_uploaded_file($_FILES["avatar"]["tmp_name"], "img/". $_POST["email"]. "." .$ext);
+  }
+  else {
+    var_dump($errores);
+  }
+}
+//($_POST);
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--Deberia redirigir  al apagina de felicitacion solo si esta bien para eso lo dejamos por defecto y arriba en el if( si no hay algun problema){crear usuario y redireccionar a la pagina} -->
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,22 +49,22 @@
   <div class="container">
   <h2 class="text-center text-lg-left">Completá tus datos</h2>
 
-  <form action="mostrarDatossCapturados.php" method="post"><!--A donde va ir cuando presione ENviar-->
+  <form action="registro.php" method="post"><!--A donde va ir cuando presione ENviar-->
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
-            <label for="nombre">Nombre</label><!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
-            <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre" required>
+            <label for="nombre">Nombre Completo</label><!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
+            <input type="text" class="form-control" id="inputNombre" name="nombre" value='<?= $nombreOk ?>' placeholder="Nombre" required>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
-            <label for="nombre">Apellido</label>
-            <input type="text" class="form-control" id="inputApellido" name="apellido" placeholder="Apellido" required>
+            <label for="nombre">Email</label>
+            <input type="email" class="form-control" id="inputApellido" name="email" value='<?= $emailOk ?>' placeholder="Email" required>
           </div>
       </div>
 
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email" required>
+            <label for="inputEmail4">Username</label>
+            <input type="text" class="form-control" id="inputEmail4" name="username" value='<?= $usernameOk ?>' placeholder="Username" required>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="inputPassword4">Password</label>
