@@ -71,7 +71,24 @@ if ($_POST) {
             <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password" required>
           </div>
       </div>
+      <div class="form-group form-row">
+        <h6 class="mt-3">Hobbies</h6> <?php // TODO: Persistir ?>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" name="hobbies[sports]" type="checkbox" id="inlineCheckbox1" value="sports">
+          <label class="form-check-label" for="inlineCheckbox1">Deportes</label>
+        </div>
 
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" name="hobbies[viaje]" type="checkbox" id="inlineCheckbox2" value="viaje">
+          <label class="form-check-label" for="inlineCheckbox2">Viajar</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" name="hobbies[programming]" type="checkbox" id="inlineCheckbox3" value="programming">
+          <label class="form-check-label" for="inlineCheckbox3">Programación</label>
+        </div>
+
+      </div>
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
                 <label for="pais">Pais</label>
