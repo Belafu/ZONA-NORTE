@@ -40,7 +40,15 @@ function validarRegistro($datos){
     } elseif($datosFinales["pass"] !== $datosFinales["pass2"]){
       $errores["pass"] = "Las contraseñas no coinciden.";
     }*/
-
+//VALIDACION DE LA IMAGEN
+    if ($_FILES["foto"]["error"]!= 0) {
+      $errores["foto"] = "Hubo un error al acargar la imagen <br>";
+    }else {
+        $ext = pathinfo($_FILES["foto"]["name"],PATHINFO_EXTENSION);
+        if ($ext!= "jpg" && $ext!= "jpeg" && $ext!= "png") {
+            $errores["foto"] = "el cv debe ser jpg ,jpeg o png <br>";
+        }
+    }
     return $errores;
 }
 
@@ -61,7 +69,8 @@ function armarUsuario(){//Se pasa por $_POST
     "nombre" => trim($_POST["nombre"]),
     "email" =>  trim($_POST["email"]),
     "username" => trim($_POST["username"]),
-    "password" => password_hash($_POST["password"],PASSWORD_DEFAULT)
+    "password" => password_hash($_POST["password"],PASSWORD_DEFAULT),
+    "foto" => "img/".$_POST["username"]
   ];
 }
 
@@ -76,6 +85,6 @@ function guardarUsuario($usuario){
   file_put_contents("usuarios.json", $array);
 }
 
-
+//Falta validar que no haya usuarios repetidos ese es nuestro criterio
 
  ?>

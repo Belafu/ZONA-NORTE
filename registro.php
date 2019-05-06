@@ -5,7 +5,8 @@ $errores = [];
 $nombreOk='';
 $emailOk='';
 $usernameOk='';//hay que validar que no haya otro con el mismo username
-//$passwordOk='';
+
+//validar la imagen
 
 if ($_POST) {
   $errores = validarRegistro($_POST);
@@ -19,8 +20,8 @@ if ($_POST) {
       guardarUsuario($usuario);
       header('Location: felicitaciones.php');
       //subir imagen;
-      //$ext= pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
-      //move_uploaded_file($_FILES["avatar"]["tmp_name"], "img/". $_POST["email"]. "." .$ext);
+      $ext= pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
+      move_uploaded_file($_FILES["foto"]["tmp_name"], "img/". $_POST["username"]. "." .$ext);
   }
   else {
     var_dump($errores);
@@ -49,7 +50,7 @@ if ($_POST) {
   <div class="container">
   <h2 class="text-center text-lg-left">Completá tus datos</h2>
 
-  <form action="registro.php" method="post"><!--A donde va ir cuando presione ENviar-->
+  <form action="registro.php" method="post" enctype="multipart/form-data"><!--A donde va ir cuando presione ENviar-->
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
             <label for="nombre">Nombre Completo</label><!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
@@ -60,7 +61,6 @@ if ($_POST) {
             <input type="email" class="form-control" id="inputApellido" name="email" value='<?= $emailOk ?>' placeholder="Email" required>
           </div>
       </div>
-
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
             <label for="inputEmail4">Username</label>
@@ -72,22 +72,27 @@ if ($_POST) {
           </div>
       </div>
       <div class="form-group form-row">
-        <h6 class="mt-3">Hobbies</h6> <?php // TODO: Persistir ?>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" name="hobbies[sports]" type="checkbox" id="inlineCheckbox1" value="sports">
+        <div class="col-xs-12 col-lg-12">
+          <label for="" >Hobbies</label>
+        </div>
+        <div class="form-check form-check-inline col-xs-12 col-lg-3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="hobbies[sports]" value="option1">
           <label class="form-check-label" for="inlineCheckbox1">Deportes</label>
         </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" name="hobbies[viaje]" type="checkbox" id="inlineCheckbox2" value="viaje">
-          <label class="form-check-label" for="inlineCheckbox2">Viajar</label>
+        <div class="form-check form-check-inline col-xs-12 col-lg-3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="hobbies[viaje]" value="option2">
+          <label class="form-check-label" for="inlineCheckbox2">Viajes</label>
         </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" name="hobbies[programming]" type="checkbox" id="inlineCheckbox3" value="programming">
+        <div class="form-check form-check-inline col-xs-12 col-lg-3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="hobbies[programming]" value="option3">
           <label class="form-check-label" for="inlineCheckbox3">Programación</label>
         </div>
-
+      </div>
+      <div class="form-group form-row">
+          <div class="form-group col-xs-12">
+            <!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
+            Foto de Perfil  <input type="file"  id="inputNombre" name="foto">
+          </div>
       </div>
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
