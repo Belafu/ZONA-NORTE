@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function validarRegistro($datos){
     $errores=[];
     $datosFinales = [];
@@ -41,20 +41,36 @@ function validarRegistro($datos){
       $errores["pass"] = "Las contraseñas no coinciden.";
     }*/
 //VALIDACION DE LA IMAGEN
+    //NO QUIERO QUE SEA UN NECESARIO CARGAR LA IMAGEN
+    /*
     if ($_FILES["foto"]["error"]!= 0) {
       $errores["foto"] = "Hubo un error al acargar la imagen <br>";
-    }else {
+    }  else {
         $ext = pathinfo($_FILES["foto"]["name"],PATHINFO_EXTENSION);
         if ($ext!= "jpg" && $ext!= "jpeg" && $ext!= "png") {
             $errores["foto"] = "el cv debe ser jpg ,jpeg o png <br>";
         }
     }
+    */
+    if (buscarClientePorUsuario($_POST["username"]) != NULL) {
+      $errores["username"] = "Nombre de Usuario usado";
+    }
+
+
     return $errores;
 }
 
 function nextId(){
   // TODO: que pasa si no hay usuario anterior.
-  $json = file_get_contents("usuarios.json");
+  if (!file_exits("usuarios.json")) {
+    $json = '';
+  }else {
+    $json = file_get_contents("usuarios.json");
+  }
+  if ($json == '') {
+    return 1;
+  }
+
   $array = json_decode($json, true);
   $ultimoUsuario = array_pop($array["usuarios"]);
   $lastId = $ultimoUsuario["id"];
@@ -76,7 +92,12 @@ function armarUsuario(){//Se pasa por $_POST
 
 function guardarUsuario($usuario){
   // TODO: que pasa si no hay archivo.
-  $json = file_get_contents("usuarios.json");
+  if (!file_exits("usuarios.json")) {
+    $json = '';
+  }else {
+    $json = file_get_contents("usuarios.json");
+  }
+//  $json = file_get_contents("usuarios.json");
   $array = json_decode($json, true);
 
   $array["usuarios"][] = $usuario;
@@ -86,5 +107,23 @@ function guardarUsuario($usuario){
 }
 
 //Falta validar que no haya usuarios repetidos ese es nuestro criterio
+function buscarClientePorUsuario($username){
+  $json = file_get_contents("usuarios.json");
+  $array = json_decode($json, true);
+  foreach ($array["usuarios"] as $value) {
+    if ($value["username"]==$username) {
+      return $value;
+    }
+  }
+  return NULL;
+}
+
+
+function validarLogin($usuario){
+    //verificar que  coincidan las contraseñas
+}
+function usuarioLogueado(){
+  return isset($_SESSION["username"]);
+}
 
  ?>

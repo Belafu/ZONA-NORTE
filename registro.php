@@ -18,16 +18,18 @@ if ($_POST) {
   if(empty($errores)){//NO EXISTE O  ES VACIO
       $usuario = armarUsuario();
       guardarUsuario($usuario);
-      header('Location: felicitaciones.php');
-      //subir imagen;
       $ext= pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
-      move_uploaded_file($_FILES["foto"]["tmp_name"], "img/". $_POST["username"]. "." .$ext);
+      move_uploaded_file($_FILES["foto"]["tmp_name"], "img/" . $_POST["username"]. "." . $ext);
+      header('Location: felicitaciones.php');
+      var_dump($_POST);
+      //subir imagen;
+
   }
   else {
-    var_dump($errores);
+    var_dump($errores,$_POST);
   }
 }
-//($_POST);
+
 
 ?>
 <!DOCTYPE html>
@@ -54,7 +56,7 @@ if ($_POST) {
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
             <label for="nombre">Nombre Completo</label><!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
-            <input type="text" class="form-control" id="inputNombre" name="nombre" value='<?= $nombreOk ?>' placeholder="Nombre" required>
+            <input type="text" class="form-control" id="inputNombre" name="nombre" value='<?= $nombreOk ?>' placeholder="Nombre" >
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="nombre">Email</label>
@@ -76,15 +78,27 @@ if ($_POST) {
           <label for="" >Hobbies</label>
         </div>
         <div class="form-check form-check-inline col-xs-12 col-lg-3">
+          <?php if (isset($_POST["hobbies"]) && isset($_POST["hobbies"]["sports"])): ?>
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="hobbies[sports]" value="option1" checked>
+          <?php else: ?>
           <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="hobbies[sports]" value="option1">
+          <?php endif; ?>
           <label class="form-check-label" for="inlineCheckbox1">Deportes</label>
         </div>
         <div class="form-check form-check-inline col-xs-12 col-lg-3">
+          <?php if (isset($_POST["hobbies"]) && isset($_POST["hobbies"]["sports"])): ?>
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="hobbies[viaje]" value="option2" checked>
+          <?php else: ?>
           <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="hobbies[viaje]" value="option2">
+          <?php endif; ?>
           <label class="form-check-label" for="inlineCheckbox2">Viajes</label>
         </div>
         <div class="form-check form-check-inline col-xs-12 col-lg-3">
+          <?php if (isset($_POST["hobbies"]) && isset($_POST["hobbies"]["sports"])): ?>
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="hobbies[programming]" value="option3" checked>
+          <?php else: ?>
           <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="hobbies[programming]" value="option3">
+          <?php endif; ?>
           <label class="form-check-label" for="inlineCheckbox3">Programación</label>
         </div>
       </div>
