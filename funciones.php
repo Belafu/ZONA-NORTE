@@ -62,7 +62,7 @@ function validarRegistro($datos){
 
 function nextId(){
   // TODO: que pasa si no hay usuario anterior.
-  if (!file_exits("usuarios.json")) {
+  if (!file_exists("usuarios.json")) {
     $json = '';
   }else {
     $json = file_get_contents("usuarios.json");
@@ -92,7 +92,7 @@ function armarUsuario(){//Se pasa por $_POST
 
 function guardarUsuario($usuario){
   // TODO: que pasa si no hay archivo.
-  if (!file_exits("usuarios.json")) {
+  if (!file_exists("usuarios.json")) {
     $json = '';
   }else {
     $json = file_get_contents("usuarios.json");
@@ -115,15 +115,57 @@ function buscarClientePorUsuario($username){
       return $value;
     }
   }
-  return NULL;
+  return null;
 }
 
-
-function validarLogin($usuario){
-    //verificar que  coincidan las contraseñas
+function existeUsuario($username){
+  return buscarClientePorUsuario($username) !== null;
 }
+
+function validarLogin($datos){
+  $errores = [];
+  if(strlen($datos["username"]) == 0){
+    $errores["username"] = "Por favor complete el campo email.";
+  } elseif(!existeUsuario($datos["username"])){
+    $errores["username"] = "Este Username no se encuentra registrado.";
+  }
+
+  if(strlen($datos["password"]) == 0){
+    $errores["password"] = "El campo contraseña no puede estar vacío.";
+  } else {
+    $usuario = buscarClientePorUsuario($datos["username"]);
+    if(!password_verify($datos["password"], $usuario["password"])){
+      $errores["password"] = "La contraseña es incorrecta.";
+    }
+  }
+
+  return $errores;
+}
+
+function loguearUsuario($username){
+  $_SESSION["username"] = $username;
+}
+
 function usuarioLogueado(){
   return isset($_SESSION["username"]);
+}
+
+function traerUsuarioLogueado(){
+  // Si está logueado trae los datos del usuario
+  if(isset($_SESSION["username"])) {
+    $usuario = buscarClientePorUsuario($_SESSION["username"]);
+    return $usuario;
+  } else {
+    // Sino: FALSE
+    return false;
+  }
+}
+
+function listaUsuarios(){
+  $json = file_get_contents("db.json");
+  $array = json_decode($json, true);
+
+  return $array["usuarios"];
 }
 
  ?>

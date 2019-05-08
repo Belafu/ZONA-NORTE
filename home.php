@@ -1,3 +1,12 @@
+<?php
+require 'funciones.php';
+
+$usuario = traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS DATOS
+$usuarioLogueado = usuarioLogueado();
+var_dump($_SESSION);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -12,6 +21,12 @@
   </head>
   <body>
     <?php include("partes/header.php"); ?>
+    
+    <?php if (usuarioLogueado()): ?>
+      <a class="btn btn-danger" href="logout.php">Logout</a>
+    <?php else: ?>
+      <a class="btn btn-success" href="login.php">Login</a>
+    <?php endif; ?>
 
     <div class="container">
       <section "carro">

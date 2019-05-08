@@ -1,12 +1,17 @@
 <?php
 include "funciones.php";
+
+if(usuarioLogueado()){
+  header("Location:home.php");
+  exit;
+}
+
 $errores = [];
 
 $nombreOk='';
 $emailOk='';
 $usernameOk='';//hay que validar que no haya otro con el mismo username
 
-//validar la imagen
 
 if ($_POST) {
   $errores = validarRegistro($_POST);
@@ -14,15 +19,14 @@ if ($_POST) {
   $nombreOk = trim($_POST["nombre"]);
   $emailOk = trim($_POST["email"]);
   $usernameOk = trim($_POST["username"]);
-  //$passwordOk = $_POST["password"];
+
   if(empty($errores)){//NO EXISTE O  ES VACIO
       $usuario = armarUsuario();
       guardarUsuario($usuario);
       $ext= pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
       move_uploaded_file($_FILES["foto"]["tmp_name"], "img/" . $_POST["username"]. "." . $ext);
       header('Location: felicitaciones.php');
-      var_dump($_POST);
-      //subir imagen;
+      exit;
 
   }
   else {

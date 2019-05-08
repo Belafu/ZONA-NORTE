@@ -15,14 +15,6 @@
             "username": "Kobaski",
             "password": "$2y$10$fAxUgeqyMbDYHRLGucNjrOVaIoE7JXqR9MOfivLJi41X\/U90nCk2a",
             "foto": "img\/Kobaski"
-        },
-        {
-            "id": 3,
-            "nombre": "GianpierFeepp",
-            "email": "qwe@gmail.com",
-            "username": "rico",
-            "password": "$2y$10$ooT8agNwP33UjyVweevWuuHSPf6NR\/QLtX8kf6HJEmfA7AbVl8S5W",
-            "foto": "img\/rico"
         }
     ]
 }

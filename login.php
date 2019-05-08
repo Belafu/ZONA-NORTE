@@ -1,18 +1,30 @@
 <?php
-include "funciones.php";
-$errores = [];
+require_once "funciones.php";
 
-$usernameOk='';//hay que validar que no haya otro con el mismo username
-if (usuarioLogueado()) {
-  header('Location: home.php');
+if(usuarioLogueado()){
+  header("Location:home.php");
+  exit;
+}
+  $errores = [];
+  //Si viene por POST
+if($_POST){
+    //Validar Login
+    $errores = validarLogin($_POST);
+     //exit;
+
+    //Si no hay errores
+    if(empty($errores)){
+      //logueamos al user => necesitamos session_start al incio de todos nuestros archivos. Ojo con los include/ require.
+      loguearUsuario($_POST["username"]);
+      //var_dump($_SESSION);NO SE PORQUE SI DEJO ESTO SALE UN WARNIGN??
+      header("Location:home.php");//redirigimos a home
+      exit;
+    }else {
+      var_dump($errores);
+    }
+
 }
 
-
-
-
-if ($_POST) {
-  $errores = validarRegistro($_POST);
-}
 ?>
 
 
@@ -32,11 +44,11 @@ if ($_POST) {
     <?php include("partes/header.php"); ?>
     <div class="login-page">
       <div class="form">
-        <form class="login-form" action="mostrarDatossCapturados.php" method="post">
+        <form class="login-form" action="login.php" method="post" enctype="multipart/form-data">
              <label for="Usuario"></label>
-             <input class="campo-login" id="usuario" name="usuario" type="text" placeholder="Usuario"/>
+             <input class="campo-login" id="usuario" name="username" type="text" placeholder="Usuario"/>
              <label for="pass"></label>
-             <input class="campo-login" id="pass" type="password" name="pass" placeholder="Contraseña"/>
+             <input class="campo-login" id="pass" type="password" name="password" placeholder="Contraseña"/>
               <div class="recordar">
                 <input class="checkbox-login" type="checkbox" name="" value="">
                 <label class="texto-recordar" for="">Recordarme</label>
