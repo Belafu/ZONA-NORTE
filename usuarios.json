@@ -4,17 +4,9 @@
             "id": 1,
             "nombre": "Gianpier",
             "email": "abc@gmail.com",
-            "username": "asd",
-            "password": "$2y$10$p9SNAmo0AOOMZLQh3l.b3ueye54msWBk26wWI7dhLOcrI.ztD4TW2",
-            "foto": "img\/asd"
-        },
-        {
-            "id": 2,
-            "nombre": "GianpierFee",
-            "email": "gyupanquisalvatierra@gmail.com",
-            "username": "Kobaski",
-            "password": "$2y$10$fAxUgeqyMbDYHRLGucNjrOVaIoE7JXqR9MOfivLJi41X\/U90nCk2a",
-            "foto": "img\/Kobaski"
+            "username": "pepe",
+            "password": "$2y$10$NE8mmV24z5ziWz0TWO8IletC7XIz8vdQ3deX9IFiN3F2bfT38VdBe",
+            "foto": "img\/pepe"
         }
     ]
 }

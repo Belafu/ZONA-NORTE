@@ -10,11 +10,9 @@ if(usuarioLogueado()){
 if($_POST){
     //Validar Login
     $errores = validarLogin($_POST);
-     //exit;
-
     //Si no hay errores
     if(empty($errores)){
-      //logueamos al user => necesitamos session_start al incio de todos nuestros archivos. Ojo con los include/ require.
+  
       loguearUsuario($_POST["username"]);
       //var_dump($_SESSION);NO SE PORQUE SI DEJO ESTO SALE UN WARNIGN??
       header("Location:home.php");//redirigimos a home

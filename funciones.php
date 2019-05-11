@@ -26,10 +26,11 @@ function validarRegistro($datos){
     } elseif (!filter_var($datosFinales["email"], FILTER_VALIDATE_EMAIL)) {
       $errores["email"] = "Por favor ingrese un email con formato válido.";
     }
-    /*PENDIENTEEEEEEEEEEEEEE
-    if ( validar si no hay otro usuario con el mismo name ) {
-      $errores["username"]="Este nombre de Usuario ya esta siendo usado "
-    }*/
+
+    if(file_exists("usuarios.json") && existeUsuario($datosFinales["username"])){
+      $errores["email"] = "El usuario ya se encuentra registrado.";
+    }
+
 
     if(strlen($datosFinales["password"]) == 0){
       $errores["password"] = "El campo contraseña no puede estar vacío.";
@@ -41,21 +42,16 @@ function validarRegistro($datos){
       $errores["pass"] = "Las contraseñas no coinciden.";
     }*/
 //VALIDACION DE LA IMAGEN
-    //NO QUIERO QUE SEA UN NECESARIO CARGAR LA IMAGEN
-    /*
     if ($_FILES["foto"]["error"]!= 0) {
       $errores["foto"] = "Hubo un error al acargar la imagen <br>";
-    }  else {
+    }
+    /*else {
         $ext = pathinfo($_FILES["foto"]["name"],PATHINFO_EXTENSION);
         if ($ext!= "jpg" && $ext!= "jpeg" && $ext!= "png") {
             $errores["foto"] = "el cv debe ser jpg ,jpeg o png <br>";
         }
     }
     */
-    if (buscarClientePorUsuario($_POST["username"]) != NULL) {
-      $errores["username"] = "Nombre de Usuario usado";
-    }
-
 
     return $errores;
 }
@@ -63,11 +59,11 @@ function validarRegistro($datos){
 function nextId(){
   // TODO: que pasa si no hay usuario anterior.
   if (!file_exists("usuarios.json")) {
-    $json = '';
+    $json = "";//'' no va
   }else {
     $json = file_get_contents("usuarios.json");
   }
-  if ($json == '') {
+  if ($json == "") {
     return 1;
   }
 
@@ -91,7 +87,7 @@ function armarUsuario(){//Se pasa por $_POST
 }
 
 function guardarUsuario($usuario){
-  // TODO: que pasa si no hay archivo.
+  // TOD: que pasa si no hay archivo.
   if (!file_exists("usuarios.json")) {
     $json = '';
   }else {
