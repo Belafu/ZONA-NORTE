@@ -28,30 +28,30 @@ function validarRegistro($datos){
     }
 
     if(file_exists("usuarios.json") && existeUsuario($datosFinales["username"])){
-      $errores["email"] = "El usuario ya se encuentra registrado.";
+      $errores["username"] = "El usuario ya se encuentra registrado.";
     }
-
+    if(strlen($datosFinales["username"]) == 0){
+      $errores["username"] = "Por favor complete el campo Username.";
+    }
 
     if(strlen($datosFinales["password"]) == 0){
       $errores["password"] = "El campo contraseña no puede estar vacío.";
     }
-    /*EN CASO QUIERAS QUE REPITA SU CONTRASEÑA 2 VECES (SERA PARA MAYOR SEGURIDAD)
-    if(strlen($datosFinales["pass2"]) == 0){
-      $errores["pass"] = "Por favor repita su contraseña.";
-    } elseif($datosFinales["pass"] !== $datosFinales["pass2"]){
-      $errores["pass"] = "Las contraseñas no coinciden.";
-    }*/
+
 //VALIDACION DE LA IMAGEN
-    if ($_FILES["foto"]["error"]!= 0) {
-      $errores["foto"] = "Hubo un error al acargar la imagen <br>";
+    if ($_FILES["foto"]["error"]!= 0 ) {
+      if ($_FILES["foto"]["error"]!= 4) {//aqui adentro el error no es tipo 0 ni 4
+        $errores["foto"] = "Hubo un error al acargar la imagen ";
+      }else {//aqui adentro el error no es tipo 0 PERO SI 4
+      }
+    }else {//ACA SE CARGO BIEN LA FOTO
+      $ext = pathinfo($_FILES["foto"]["name"],PATHINFO_EXTENSION);
+      if ($ext!= "jpg" && $ext!= "jpeg" && $ext!= "png") {//verificar las extenciones posibles
+          $errores["foto"] = "la foto debe ser jpg ,jpeg o png <br>";
+      }
     }
-    /*else {
-        $ext = pathinfo($_FILES["foto"]["name"],PATHINFO_EXTENSION);
-        if ($ext!= "jpg" && $ext!= "jpeg" && $ext!= "png") {
-            $errores["foto"] = "el cv debe ser jpg ,jpeg o png <br>";
-        }
-    }
-    */
+
+
 
     return $errores;
 }

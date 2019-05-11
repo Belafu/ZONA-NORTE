@@ -4,15 +4,26 @@
   font-family: "montserrat",sans-serif;
 }
 header{
-  height: 100px;
-  background: #34495e;
+  height: 90px;
+  background: rgba(59, 199, 195, 0.75);
   padding: 0 20px;
   color: #fff;
 }
+
 .logo{
   line-height: 100px;
   float: left;
   text-transform: uppercase;
+}
+.nombre-header{
+    text-transform: uppercase;
+    margin: 0 10px 0 0;
+}
+.avatar{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px 0 0;
 }
 
 .menu-header{
@@ -81,5 +92,8 @@ header{
   }
   #chk:checked ~ .menu-header{
     right: 0;
+  }
+  .avatar{
+      z-index: 0;
   }
 }

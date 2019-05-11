@@ -22,15 +22,16 @@ if ($_POST) {
 
   if(empty($errores)){//NO EXISTE O  ES VACIO
       $usuario = armarUsuario();
+      if ($_FILES["foto"]["error"]== 4) {
+          $usuario["foto"]= "img/img-defecto.jpg";
+      }
       guardarUsuario($usuario);
+
       $ext= pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
       move_uploaded_file($_FILES["foto"]["tmp_name"], "img/" . $_POST["username"]. "." . $ext);
       header('Location: felicitaciones.php');
       exit;
 
-  }
-  else {
-    var_dump($errores,$_POST);
   }
 }
 
@@ -61,16 +62,25 @@ if ($_POST) {
           <div class="form-group col-xs-12 col-sm-6">
             <label for="nombre">Nombre Completo</label><!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
             <input type="text" class="form-control" id="inputNombre" name="nombre" value='<?= $nombreOk ?>' placeholder="Nombre" >
+            <?php if(isset($errores["nombre"])): ?>
+              <span class="small text-danger"><?= $errores["nombre"] ?></span>
+            <?php endif ?>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="nombre">Email</label>
-            <input type="email" class="form-control" id="inputApellido" name="email" value='<?= $emailOk ?>' placeholder="Email" required>
+            <input type="email" class="form-control" id="inputApellido" name="email" value='<?= $emailOk ?>' placeholder="Email" >
+            <?php if(isset($errores["email"])): ?>
+              <span class="small text-danger"><?= $errores["email"] ?></span>
+            <?php endif ?>
           </div>
       </div>
       <div class="form-group form-row">
           <div class="form-group col-xs-12 col-sm-6">
             <label for="inputEmail4">Username</label>
-            <input type="text" class="form-control" id="inputEmail4" name="username" value='<?= $usernameOk ?>' placeholder="Username" required>
+            <input type="text" class="form-control" id="inputEmail4" name="username" value='<?= $usernameOk ?>' placeholder="Username">
+            <?php if(isset($errores["username"])): ?>
+              <span class="small text-danger"><?= $errores["username"] ?></span>
+            <?php endif ?>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="inputPassword4">Password</label>
@@ -109,7 +119,10 @@ if ($_POST) {
       <div class="form-group form-row">
           <div class="form-group col-xs-12">
             <!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
-            Foto de Perfil  <input type="file"  id="inputNombre" name="foto">
+            Foto de Perfil  <input type="file"  id="inputNombre" name="foto" value="">
+            <?php if(isset($errores["foto"])): ?>
+              <span class="small text-danger"><?= $errores["foto"] ?></span>
+            <?php endif ?>
           </div>
       </div>
       <div class="form-group form-row">

@@ -2,11 +2,27 @@
     "usuarios": [
         {
             "id": 1,
+            "nombre": "asdfghjk",
+            "email": "abc@gmail.com",
+            "username": "zxcdfvgbhnjmk",
+            "password": "$2y$10$oBDRRVvNRFxSO7NxgHGvP.Tt8ScViqTMCgiH2hXbLD8LC75MpRWSi",
+            "foto": "img\/img-defecto.jpg"
+        },
+        {
+            "id": 2,
+            "nombre": "asdfghjkl",
+            "email": "abc@gmail.com",
+            "username": "pepe123",
+            "password": "$2y$10$tHTKY6gQ0Vt4xrIfOAfdqu1xvXrFtc\/LbCXKdIoZWC0eplCdwNITi",
+            "foto": "img\/img-defecto.jpg"
+        },
+        {
+            "id": 3,
             "nombre": "Gianpier",
             "email": "abc@gmail.com",
-            "username": "pepe",
-            "password": "$2y$10$PtrtBGg9y3qp6oUIgGQ1iOsnOxaKfhVpfoYw1gTR\/X7abd0KcaX1e",
-            "foto": "img\/pepe"
+            "username": "pepe1234",
+            "password": "$2y$10$UNHScLXjTfH\/ulf7VpE5OOl3qW7Lii1InNt0ZfQianpHZI6Z16WMm",
+            "foto": "img\/pepe1234"
         }
     ]
 }
