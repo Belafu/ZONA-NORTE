@@ -5,22 +5,22 @@ if(usuarioLogueado()){
   header("Location:home.php");
   exit;
 }
-  $errores = [];
+$userOK='';
+$errores = [];
   //Si viene por POST
 if($_POST){
+
+    $userOK = $_POST["username"];
     //Validar Login
     $errores = validarLogin($_POST);
     //Si no hay errores
     if(empty($errores)){
-  
+
       loguearUsuario($_POST["username"]);
       //var_dump($_SESSION);NO SE PORQUE SI DEJO ESTO SALE UN WARNIGN??
       header("Location:home.php");//redirigimos a home
       exit;
-    }else {
-      var_dump($errores);
     }
-
 }
 
 ?>
@@ -44,10 +44,18 @@ if($_POST){
       <div class="form">
         <form class="login-form" action="login.php" method="post" enctype="multipart/form-data">
              <label for="Usuario"></label>
-             <input class="campo-login" id="usuario" name="username" type="text" placeholder="Usuario"/>
+             <input class="campo-login" id="usuario" name="username" type="text" value='<?= $userOK ?>' placeholder="Usuario"/>
+             <?php if(isset($errores["username"])): ?>
+               <span class="small text-danger"><?= $errores["username"] ?></span>
+             <?php endif ?>
+
              <label for="pass"></label>
              <input class="campo-login" id="pass" type="password" name="password" placeholder="Contraseña"/>
-              <div class="recordar">
+             <?php if(isset($errores["password"])): ?>
+               <span class="small text-danger"><?= $errores["password"] ?></span>
+             <?php endif ?>
+
+             <div class="recordar">
                 <input class="checkbox-login" type="checkbox" name="" value="">
                 <label class="texto-recordar" for="">Recordarme</label>
               </div>
