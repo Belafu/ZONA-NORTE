@@ -21,8 +21,9 @@ var_dump($_SESSION);
   </head>
   <body>
     <?php include("partes/header.php"); ?>
-    
+
     <?php if (usuarioLogueado()): ?>
+        <img class="avatar" src="img/<?= $usuario["username"] . ".png"?>" alt="">
       <a class="btn btn-danger" href="logout.php">Logout</a>
     <?php else: ?>
       <a class="btn btn-success" href="login.php">Login</a>

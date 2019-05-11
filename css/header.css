@@ -30,7 +30,7 @@ header{
   transition: 0.4s;
   font-size: 30px;
   cursor: pointer;
-  display: none;
+  display: none;  /*ESto me dice que no esta en version movil*/
 }
 .show-menu-btn{
   float: right;
