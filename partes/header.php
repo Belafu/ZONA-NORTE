@@ -9,8 +9,8 @@
     <ul class="menu-header">
 
       <?php if (usuarioLogueado()): ?>
-        <span class="nombre-header"><?= $usuario["username"] ?></span>
         <img class="avatar" src="<?= $usuario["foto"] ?>" alt="">
+        <span class="nombre-header"><?= $usuario["username"] ?></span>
         <a class="btn btn-danger" href="logout.php">Logout</a>
       <?php else: ?>
         <a class="btn btn-success" href="login.php">Login</a>

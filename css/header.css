@@ -81,7 +81,7 @@ header{
     line-height: normal;
     transition: 0.7s;
   }
-  .menu-header a{
+  .menu-header a, .nombre-header{
     display: block;
     padding: 20px;
   }
@@ -94,6 +94,10 @@ header{
     right: 0;
   }
   .avatar{
-      z-index: 0;
+    width: 100px;
+    height: 100px;
+    margin: 0;
   }
+
+
 }
