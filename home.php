@@ -2,7 +2,6 @@
 require 'funciones.php';
 
 $usuario = traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS DATOS
-$usuarioLogueado = usuarioLogueado();
 
 ?>
 

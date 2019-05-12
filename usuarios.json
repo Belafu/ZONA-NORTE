@@ -2,27 +2,19 @@
     "usuarios": [
         {
             "id": 1,
-            "nombre": "asdfghjk",
+            "nombre": "Gianpier",
             "email": "abc@gmail.com",
-            "username": "zxcdfvgbhnjmk",
-            "password": "$2y$10$oBDRRVvNRFxSO7NxgHGvP.Tt8ScViqTMCgiH2hXbLD8LC75MpRWSi",
+            "username": "pepe",
+            "password": "$2y$10$iybBrQq8h2RfCMw5Yx2O7.dupd24xHihDqnVbTRTYWCtj1RTUMQy6",
             "foto": "img\/img-defecto.jpg"
         },
         {
             "id": 2,
-            "nombre": "asdfghjkl",
-            "email": "abc@gmail.com",
-            "username": "pepe123",
-            "password": "$2y$10$tHTKY6gQ0Vt4xrIfOAfdqu1xvXrFtc\/LbCXKdIoZWC0eplCdwNITi",
-            "foto": "img\/img-defecto.jpg"
-        },
-        {
-            "id": 3,
-            "nombre": "Gianpier",
-            "email": "abc@gmail.com",
-            "username": "pepe1234",
-            "password": "$2y$10$UNHScLXjTfH\/ulf7VpE5OOl3qW7Lii1InNt0ZfQianpHZI6Z16WMm",
-            "foto": "img\/pepe1234"
+            "nombre": "farfan",
+            "email": "qwe@gmail.com",
+            "username": "pepe2",
+            "password": "$2y$10$lHi2kNGo0h7DzRaAuP.hUe.yhxRnM0Y1pgJpDRY7b8vfBym0c2R\/e",
+            "foto": "img\/pepe2.jpg"
         }
     ]
 }

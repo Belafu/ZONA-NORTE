@@ -24,11 +24,13 @@ if ($_POST) {
       $usuario = armarUsuario();
       if ($_FILES["foto"]["error"]== 4) {
           $usuario["foto"]= "img/img-defecto.jpg";
+          guardarUsuario($usuario);
+      }else {
+        $ext= pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
+        $usuario["foto"]= "img/" . $_POST["username"]. "." . $ext;
+        move_uploaded_file($_FILES["foto"]["tmp_name"], "img/" . $_POST["username"]. "." . $ext);
+        guardarUsuario($usuario);
       }
-      guardarUsuario($usuario);
-
-      $ext= pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
-      move_uploaded_file($_FILES["foto"]["tmp_name"], "img/" . $_POST["username"]. "." . $ext);
       header('Location: felicitaciones.php');
       exit;
 

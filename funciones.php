@@ -81,8 +81,8 @@ function armarUsuario(){//Se pasa por $_POST
     "nombre" => trim($_POST["nombre"]),
     "email" =>  trim($_POST["email"]),
     "username" => trim($_POST["username"]),
-    "password" => password_hash($_POST["password"],PASSWORD_DEFAULT),
-    "foto" => "img/".$_POST["username"]
+    "password" => password_hash($_POST["password"],PASSWORD_DEFAULT)
+  // ESTO ES LO QUE JODE : SE AGREGA EN EL REGISTRO "foto" => "img/".$_POST["username"]
   ];
 }
 

@@ -1,3 +1,4 @@
+
   <header>
     <a href="home.php"><h2 class="logo">DarkCode</h2></a>
     <input type="checkbox" id="chk">
