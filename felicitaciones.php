@@ -1,6 +1,9 @@
 <?php
+session_start();
 echo "RELLENASTE CORRECTAMENTE TODOS TUS DATOS";
+
 var_dump($_POST);
+var_dump($_SESSION);
 //NO FUNCIONA COMO ACCEDEMOS A LOS DATOS
 
  ?>

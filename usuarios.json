@@ -5,16 +5,22 @@
             "nombre": "Gianpier",
             "email": "abc@gmail.com",
             "username": "pepe",
-            "password": "$2y$10$iybBrQq8h2RfCMw5Yx2O7.dupd24xHihDqnVbTRTYWCtj1RTUMQy6",
+            "password": "$2y$10$IE8vN0t7I.2QSqTyOuHbq.Xp0O60tChod\/VTMkqvC835HeLKe77K.",
+            "gender": "other",
+            "pais": "argentina",
+            "ciudad": "Buenos Aires",
             "foto": "img\/img-defecto.jpg"
         },
         {
             "id": 2,
-            "nombre": "farfan",
-            "email": "qwe@gmail.com",
+            "nombre": "GianpierFee",
+            "email": "user@gmail.com",
             "username": "pepe2",
-            "password": "$2y$10$lHi2kNGo0h7DzRaAuP.hUe.yhxRnM0Y1pgJpDRY7b8vfBym0c2R\/e",
-            "foto": "img\/pepe2.jpg"
+            "password": "$2y$10$DBiTABznG9RjRjbIYM19v.qkRTnBlS0mQrnnAOTq2FXrHSA3iVW4u",
+            "gender": "masc",
+            "pais": "urugai",
+            "ciudad": "Buenos Aires",
+            "foto": "img\/pepe2.png"
         }
     ]
 }

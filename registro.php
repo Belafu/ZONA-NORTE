@@ -14,23 +14,26 @@ $usernameOk='';//hay que validar que no haya otro con el mismo username
 
 
 if ($_POST) {
+
+
   $errores = validarRegistro($_POST);
 
   $nombreOk = trim($_POST["nombre"]);
   $emailOk = trim($_POST["email"]);
   $usernameOk = trim($_POST["username"]);
-
   if(empty($errores)){//NO EXISTE O  ES VACIO
       $usuario = armarUsuario();
       if ($_FILES["foto"]["error"]== 4) {
           $usuario["foto"]= "img/img-defecto.jpg";
           guardarUsuario($usuario);
+
       }else {
         $ext= pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
         $usuario["foto"]= "img/" . $_POST["username"]. "." . $ext;
         move_uploaded_file($_FILES["foto"]["tmp_name"], "img/" . $_POST["username"]. "." . $ext);
         guardarUsuario($usuario);
       }
+      loguearUsuario($usuario["username"]);
       header('Location: felicitaciones.php');
       exit;
 
@@ -91,32 +94,35 @@ if ($_POST) {
       </div>
       <div class="form-group form-row">
         <div class="col-xs-12 col-lg-12">
-          <label for="" >Hobbies</label>
+          <label for="" >Género</label>
         </div>
         <div class="form-check form-check-inline col-xs-12 col-lg-3">
-          <?php if (isset($_POST["hobbies"]) && isset($_POST["hobbies"]["sports"])): ?>
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="hobbies[sports]" value="option1" checked>
+          <?php if(isset($_POST["gender"]) && $_POST["gender"] == "masc"): ?>
+            <input class="form-check-input" name="gender" type="radio" id="inlineRadio1" value="masc" checked>
           <?php else: ?>
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="hobbies[sports]" value="option1">
-          <?php endif; ?>
-          <label class="form-check-label" for="inlineCheckbox1">Deportes</label>
+          <input class="form-check-input" name="gender" type="radio" id="inlineRadio1" value="masc">
+        <?php endif ?>
+          <label class="form-check-label" for="inlineRadio1">Masculino</label>
         </div>
         <div class="form-check form-check-inline col-xs-12 col-lg-3">
-          <?php if (isset($_POST["hobbies"]) && isset($_POST["hobbies"]["sports"])): ?>
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="hobbies[viaje]" value="option2" checked>
+          <?php if(isset($_POST["gender"]) && $_POST["gender"] == "fem"): ?>
+              <input class="form-check-input" name="gender" type="radio" id="inlineRadio2" value="fem" checked>
           <?php else: ?>
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="hobbies[viaje]" value="option2">
+            <input class="form-check-input" name="gender" type="radio" id="inlineRadio2" value="fem">
           <?php endif; ?>
-          <label class="form-check-label" for="inlineCheckbox2">Viajes</label>
+          <label class="form-check-label" for="inlineRadio2">Femenino</label>
         </div>
         <div class="form-check form-check-inline col-xs-12 col-lg-3">
-          <?php if (isset($_POST["hobbies"]) && isset($_POST["hobbies"]["sports"])): ?>
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="hobbies[programming]" value="option3" checked>
+          <?php if(isset($_POST["gender"]) && $_POST["gender"] == "other"): ?>
+              <input class="form-check-input" name="gender" type="radio" id="inlineRadio3" value="other" checked>
           <?php else: ?>
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="hobbies[programming]" value="option3">
+            <input class="form-check-input" name="gender" type="radio" id="inlineRadio3" value="other">
           <?php endif; ?>
-          <label class="form-check-label" for="inlineCheckbox3">Programación</label>
+          <label class="form-check-label" for="inlineRadio3">Prefiero no decirlo</label>
         </div>
+        <?php if(isset($errores["gender"])): ?>
+          <span class="small text-danger"><?= $errores["gender"] ?></span>
+        <?php endif ?>
       </div>
       <div class="form-group form-row">
           <div class="form-group col-xs-12">

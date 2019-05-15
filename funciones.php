@@ -37,6 +37,9 @@ function validarRegistro($datos){
     if(strlen($datosFinales["password"]) == 0){
       $errores["password"] = "El campo contraseña no puede estar vacío.";
     }
+    if(!isset($datosFinales["gender"])){
+      $errores["gender"] = "El campo genero no puede estar vacío.";
+    }
 
 //VALIDACION DE LA IMAGEN
     if ($_FILES["foto"]["error"]!= 0 ) {
@@ -81,8 +84,10 @@ function armarUsuario(){//Se pasa por $_POST
     "nombre" => trim($_POST["nombre"]),
     "email" =>  trim($_POST["email"]),
     "username" => trim($_POST["username"]),
-    "password" => password_hash($_POST["password"],PASSWORD_DEFAULT)
-  // ESTO ES LO QUE JODE : SE AGREGA EN EL REGISTRO "foto" => "img/".$_POST["username"]
+    "password" => password_hash($_POST["password"],PASSWORD_DEFAULT),
+    "gender"=> $_POST["gender"],
+    "pais" => $_POST["pais"],
+    "ciudad" => $_POST["ciudad"]
   ];
 }
 
