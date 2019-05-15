@@ -11,16 +11,21 @@ $errores = [];
 if($_POST){
 
     $userOK = $_POST["username"];
-    //Validar Login
     $errores = validarLogin($_POST);
-    //Si no hay errores
-    if(empty($errores)){
 
+    if(empty($errores)){
+        if (isset($_POST["recordar"])) {
+            setcookie("username",$userOK,time()+15);//15 segundos
+        }
       loguearUsuario($_POST["username"]);
+
       //var_dump($_SESSION);NO SE PORQUE SI DEJO ESTO SALE UN WARNIGN??
       header("Location:home.php");//redirigimos a home
       exit;
-    }
+    }/*Si quieres ver los erroes arriba
+    else {
+      var_dump($_POST);
+    }*/
 }
 
 ?>
@@ -56,8 +61,8 @@ if($_POST){
              <?php endif ?>
 
              <div class="recordar">
-                <input class="checkbox-login" type="checkbox" name="" value="">
-                <label class="texto-recordar" for="">Recordarme</label>
+                <input class="checkbox-login" type="checkbox" name="recordar" value="">
+                <label class="texto-recordar" for="recordar">Recordarme</label>
               </div>
              <button>ingresar</button>
           <p class="message">Aun no estas registrado?<a class="reg-button" href="registro.php"> Registrarse</a></p>

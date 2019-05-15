@@ -1,3 +1,12 @@
+<?php
+if (isset($_COOKIE["username"])) {
+//loguearUsuario($_COOKIE["username"]);
+$usuario = buscarClientePorUsuario($_COOKIE["username"]);
+loguearUsuario($usuario["username"]);
+}
+
+ ?>
+
 
   <header>
     <a href="home.php"><h2 class="logo">DarkCode</h2></a>

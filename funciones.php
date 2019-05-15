@@ -148,7 +148,7 @@ function loguearUsuario($username){
 }
 
 function usuarioLogueado(){
-  return isset($_SESSION["username"]);
+  return isset($_SESSION["username"]) ;
 }
 
 function traerUsuarioLogueado(){
