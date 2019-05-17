@@ -1,0 +1,48 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nombre": "pepe",
+            "email": "asd@asd.com",
+            "username": "pepe",
+            "password": "$2y$10$q4CGiLdH7uPuh6X9qn0mn.Y7dDPXfXE6g1cHbw5X6As1Pu8JR\/XSi",
+            "foto": "img\/pepe"
+        },
+        {
+            "id": 2,
+            "nombre": "franco",
+            "email": "asd@asd.com",
+            "username": "francodiner",
+            "password": "$2y$10$Tjsop9KLk6xBQWDRPCrFcup\/d.fSzT5xEvc0YFb7vTLYzcijrlDA6",
+            "gender": "masc",
+            "foto": "img\/francodiner"
+        },
+        {
+            "id": 3,
+            "nombre": "franco",
+            "email": "asd@asd.com",
+            "username": "pepe123",
+            "password": "$2y$10$XncUAhI49zTk8srUDVPSrOh0E5tjgAVZm1QAhDKrtaul.stYMGLWO",
+            "gender": "masc",
+            "foto": "img\/pepe123"
+        },
+        {
+            "id": 4,
+            "nombre": "franco",
+            "email": "asd@asd.com",
+            "username": "pepe1234",
+            "password": "$2y$10$BjAJcZrgUOnWb.boSh8SSu\/qFhA.baporENrvEOkcfKNpAaUIsnhO",
+            "gender": "fem",
+            "foto": "img\/pepe1234"
+        },
+        {
+            "id": 5,
+            "nombre": "guido",
+            "email": "asd@asd.com",
+            "username": "guidito",
+            "password": "$2y$10$TFj4hjeWKn2rVy397E6Ile04XhoF46XZE8Eto8LuuOIsHBh\/p3HWe",
+            "gender": "other",
+            "foto": "img\/guidito"
+        }
+    ]
+}
