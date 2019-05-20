@@ -16,16 +16,16 @@ loguearUsuario($usuario["username"]);
     </label>
 
     <ul class="menu-header">
-
+      <a href="home.php">Home</a>
+      <a href="productos.php">Productos</a>
       <?php if (usuarioLogueado()): ?>
         <img class="avatar" src="<?= $usuario["foto"] ?>" alt="">
         <span class="nombre-header"><?= $usuario["username"] ?></span>
         <a class="btn btn-danger" href="logout.php">Logout</a>
       <?php else: ?>
-        <a class="btn btn-success" href="login.php">Login</a>
         <a href="registro.php">Registro</a>
+        <a class="btn btn-success" href="login.php">Login</a>
       <?php endif; ?>
-      <a href="productos.php">Productos</a>
       <label for="chk" class="hide-menu-btn">
         <i class="fas fa-times"></i>
       </label>
