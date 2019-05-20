@@ -1,17 +1,5 @@
-/*reset generales*/
-*{
-box-sizing: border-box;
-}
-ul,ol{
-  padding: 0;
-}
-li{
-  list-style-type: none;
-}
-a{
-  text-decoration: none;
-  color: #000;
-}
+/*reset generales: Lo HEREDA DEL HEADER*/
+
 /*footer*/
 footer{
   background: rgba(238, 252, 81, 0.6);
@@ -52,7 +40,7 @@ footer{
 }
 .iconosSociales ul li{
   position: relative;
-  list-style: none;
+  /*list-style: none;   LO HEREDA de los reset generalse  */
   margin:0 2px;
 }
 .iconosSociales ul li a{

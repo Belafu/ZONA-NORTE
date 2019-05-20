@@ -1,4 +1,4 @@
-*{
+/* *{
 box-sizing: border-box;
 }
 ul,ol{
@@ -10,7 +10,11 @@ li{
 a{
   color: #000;
   text-decoration: none;
+}*/
+ul,ol{
+  margin: 0;
 }
+/*LOS RESET generales los HEREDA del HEADER:PERO SI QUIERO RESSETEAR LOS DE BOOSTRAP ?*/
 p{
   font-size: 20px
 }

@@ -1,8 +1,23 @@
+/*reset generales*/
 *{
-  margin: 0;
-  padding: 0;
-  font-family: "montserrat",sans-serif;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: "montserrat",sans-serif;
 }
+ul,ol{
+  padding: 0;
+}
+li{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+/*FIn de los reset*/
+/*PARA NO REPETIR LOS RESET ,SI TIENE EL HEADER YA LOS TIENE*/
+
 header{
   height: 90px;
   background: rgba(59, 199, 195, 0.75);
