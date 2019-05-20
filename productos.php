@@ -1,8 +1,7 @@
 <?php
 require 'funciones.php';
 $usuario = traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS DATOS
-$usuarioLogueado = usuarioLogueado();
-var_dump($_SESSION);
+
 ?>
 
 <!DOCTYPE html>
@@ -22,12 +21,12 @@ var_dump($_SESSION);
 
 
     <div class="container">
-      <ul type="disc" class="list">
-  <li><a href="#mouses">MOUSES</a></li>
-  <li><a href="#teclados">TECLADOS</a></li>
-  <li><a href="#auriculares">AURICULARES</a></li>
-</ul>
-      </div>
+      <ul class="list">
+          <li><a href="#mouses">MOUSES</a></li>
+          <li><a href="#teclados">TECLADOS</a></li>
+          <li><a href="#auriculares">AURICULARES</a></li>
+      </ul>
+    </div>
 
 
     <div class="container">

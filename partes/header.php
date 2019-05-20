@@ -25,7 +25,7 @@ loguearUsuario($usuario["username"]);
         <a class="btn btn-success" href="login.php">Login</a>
         <a href="registro.php">Registro</a>
       <?php endif; ?>
-      <a href="#">Contact</a>
+      <a href="productos.php">Productos</a>
       <label for="chk" class="hide-menu-btn">
         <i class="fas fa-times"></i>
       </label>
