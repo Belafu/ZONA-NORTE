@@ -20,7 +20,8 @@ loguearUsuario($usuario["username"]);
       <a href="productos.php">Productos</a>
       <?php if (usuarioLogueado()): ?>
         <img class="avatar" src="<?= $usuario["foto"] ?>" alt="">
-        <span class="nombre-header"><?= $usuario["username"] ?></span>
+        <a href="editarPerfil.php"><span class="nombre-header btn btn-warning"><?= $usuario["username"] ?></span></a>
+
         <a class="btn btn-danger" href="logout.php">Logout</a>
       <?php else: ?>
         <a href="registro.php">Registro</a>
