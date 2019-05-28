@@ -1,5 +1,7 @@
 <?php
+include "pdo.php";
 session_start();
+
 function validarRegistro($datos){
     $errores=[];
     $datosFinales = [];
@@ -59,7 +61,7 @@ function validarRegistro($datos){
     return $errores;
 }
 
-function nextId(){
+/*function nextId(){
   // TODO: que pasa si no hay usuario anterior.
   if (!file_exists("usuarios.json")) {
     $json = "";//'' no va
@@ -76,9 +78,9 @@ function nextId(){
 
   return $lastId + 1;
 
-}
+}*/
 
-function armarUsuario(){//Se pasa por $_POST
+/*function armarUsuario(){
   return  [
     "id" => nextId(),
     "nombre" => trim($_POST["nombre"]),
@@ -89,9 +91,19 @@ function armarUsuario(){//Se pasa por $_POST
     "pais" => $_POST["pais"],
     "ciudad" => $_POST["ciudad"]
   ];
+} */
+function armarUsuario(){
+  return  [
+    "nombre" => trim($_POST["nombre"]),
+    "email" =>  trim($_POST["email"]),
+    "username" => trim($_POST["username"]),
+    "password" => password_hash($_POST["password"],PASSWORD_DEFAULT),
+    "gender"=> $_POST["gender"],
+    "pais" => $_POST["pais"],
+    "ciudad" => $_POST["ciudad"]
+  ];
 }
-
-function guardarUsuario($usuario){
+/*function guardarUsuario($usuario){
   // TOD: que pasa si no hay archivo.
   if (!file_exists("usuarios.json")) {
     $json = '';
@@ -105,10 +117,27 @@ function guardarUsuario($usuario){
   $array = json_encode($array, JSON_PRETTY_PRINT);
 
   file_put_contents("usuarios.json", $array);
+}*/
+function guardarUsuario($usuario){
+  global $db;
+  $stmt = $db->prepare("INSERT INTO usuarios VALUES(default,:nombre ,:email , :username, :password, :gender, :pais, :ciudad, :foto)"); //Hay que explicitar los campos que son cadena de texto en SQL.
+  $stmt->bindValue(":nombre", $usuario["nombre"]);
+  $stmt->bindValue(":email", $usuario["email"]);
+  $stmt->bindValue(":username", $usuario["username"]);
+  $stmt->bindValue(":password", $usuario["password"]);
+  $stmt->bindValue(":gender", $usuario["gender"]);
+  $stmt->bindValue(":pais", $usuario["pais"]);
+  $stmt->bindValue(":ciudad", $usuario["ciudad"]);
+  $stmt->bindValue(":foto", $usuario["foto"]);
+
+  $stmt->execute();
+
+  Echo "pelicula guardada.";
+
 }
 
-//Falta validar que no haya usuarios repetidos ese es nuestro criterio
-function buscarClientePorUsuario($username){
+
+/*function buscarClientePorUsuario($username){
   $json = file_get_contents("usuarios.json");
   $array = json_decode($json, true);
   foreach ($array["usuarios"] as $value) {
@@ -117,7 +146,23 @@ function buscarClientePorUsuario($username){
     }
   }
   return null;
+}*/
+
+function buscarClientePorUsuario($username){
+//LAS VARIABLES EXTERNAS NO SABEN EN LS FUNCIONES
+  global $db;
+
+  $stmt = $db->prepare("SELECT * FROM usuarios WHERE username = :username");
+  $stmt->bindValue(":username", $username);
+  $stmt->execute();
+
+  $search = $stmt->fetch(PDO::FETCH_ASSOC);
+  if ($search) {
+    return $search;
+  }
+  return null;
 }
+
 
 function existeUsuario($username){
   return buscarClientePorUsuario($username) !== null;
@@ -162,11 +207,11 @@ function traerUsuarioLogueado(){
   }
 }
 
-function listaUsuarios(){
+/*function listaUsuarios(){
   $json = file_get_contents("db.json");
   $array = json_decode($json, true);
 
   return $array["usuarios"];
-}
+}*/
 
  ?>
