@@ -1,6 +1,8 @@
+CREATE DATABASE  IF NOT EXISTS `tp_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `tp_db`;
 -- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
--- Host: localhost    Database: dh_db
+-- Host: localhost    Database: tp_db
 -- ------------------------------------------------------
 -- Server version	8.0.16
 
@@ -111,14 +113,14 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(75) NOT NULL,
   `gender` varchar(45) NOT NULL,
   `pais` varchar(45) NOT NULL,
   `ciudad` varchar(45) NOT NULL,
   `foto` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,6 +129,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'Gianpier','abc@gmail.com','pepe','$2y$10$CauBNyFvplu21YwbQqnxvugLSwf7GaXPy/M.b20RDDNG.ez1szQKK','other','chile','Buenos Aires','img/img-defecto.jpg');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -139,4 +142,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-26 14:24:01
+-- Dump completed on 2019-05-28  0:35:37

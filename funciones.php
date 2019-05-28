@@ -1,6 +1,8 @@
 <?php
-include "pdo.php";
+//el session_start(); siempre al principio de todo: Proba intercambiando las lineas 2 y 3
 session_start();
+include "pdo.php";
+
 
 function validarRegistro($datos){
     $errores=[];
@@ -29,7 +31,7 @@ function validarRegistro($datos){
       $errores["email"] = "Por favor ingrese un email con formato válido.";
     }
 
-    if(file_exists("usuarios.json") && existeUsuario($datosFinales["username"])){
+    if(existeUsuario($datosFinales["username"])){
       $errores["username"] = "El usuario ya se encuentra registrado.";
     }
     if(strlen($datosFinales["username"]) == 0){
@@ -131,8 +133,6 @@ function guardarUsuario($usuario){
   $stmt->bindValue(":foto", $usuario["foto"]);
 
   $stmt->execute();
-
-  Echo "pelicula guardada.";
 
 }
 
