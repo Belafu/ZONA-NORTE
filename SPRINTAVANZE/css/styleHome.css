@@ -1,0 +1,137 @@
+*{
+box-sizing: border-box;
+}
+ul,ol{
+  padding: 0;
+}
+li{
+  list-style-type: none;
+}
+a{
+  color: #000;
+  text-decoration: none;
+}
+h1{
+  font-weight: bold;
+}
+.a{
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: 20px;
+}
+.info-seguridad{
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.data-seguridad{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.info{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.product-img-ofertas{
+  border: 2px solid grey;
+}
+.informacion{
+  display: none;
+}
+.ofertasdelmes{
+  border-top: 2px solid black;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+.imagen-carro{
+  margin-left: auto;
+     margin-right: auto;
+     display: block;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon{
+  background-color: black;
+}
+.fotos-marque{
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.ofertas{
+margin-bottom: 25px;
+text-align: center;
+border: 2px solid black;
+padding-top: 5px;
+
+}
+.promo{
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+img{
+  margin-bottom: 20px;
+}
+.card{
+  padding: 8px 8px;
+}
+.product-container{
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  margin-top: 20px
+}
+.product-logo{
+  position: relative;
+}
+.promo{
+  position: absolute;
+  top: 0;
+  left: -10px;
+}
+.oferta{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.carousel-item{
+  border: 2px solid grey;
+  padding-top: 10px
+}
+.ofertita{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  right: 50%;
+  left: 50%;
+  top: 40px;
+}
+
+@media (min-width: 768px){
+  .info{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: 5px;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+  .informacion{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 5px;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+}

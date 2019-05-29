@@ -1,0 +1,33 @@
+/*reset generales*/
+*{
+box-sizing: border-box;
+}
+ul,ol{
+  padding: 0;
+}
+li{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+
+.form-check, .btn-formulario{
+    margin-left: 20px;
+}
+
+.container{
+  background: darkgrey;
+  padding: 2% 6%;
+}
+h2{
+  margin-bottom: 20px;
+}
+
+.btn-primary{
+color: #fff;
+background-color: deeppink;
+border-color: deeppink;
+}

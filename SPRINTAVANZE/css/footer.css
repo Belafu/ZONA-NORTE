@@ -1,0 +1,118 @@
+/*reset generales: Lo HEREDA DEL HEADER*/
+
+/*footer*/
+footer{
+  background-color: #adb5bd;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+.texto-footer{
+  background-color: pink;
+  width: 180px;
+}
+.social{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+.text-social{
+  justify-content: center;
+}
+.iconosSociales{
+  position:relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.iconosSociales ul{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,);
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.iconosSociales ul li{
+  position: relative;
+  /*list-style: none;   LO HEREDA de los reset generalse  */
+  margin:0 2px;
+}
+.iconosSociales ul li a{
+  width: 40px;
+  height: 40px;
+  display: block;
+  transition: 0.5s;
+  background: #ccc;
+}
+.iconosSociales ul li a span{
+  width: 100%;
+  height: 100%;
+}
+
+/*Movimiento de las cajas*/
+.iconosSociales ul li a span:before{
+  text-align: center;
+  line-height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  color: #262626;
+  transform-origin: top;
+  transition-duration: 0.5s;
+}
+.iconosSociales ul li:hover a span:before{
+transform: rotateX(90deg) translateY(-50%);
+}
+.iconosSociales ul li a span:after{
+  text-align: center;
+  line-height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  color: #262626;
+  transform-origin: bottom;
+  transition-duration: 0.5s;
+  transform: rotateX(90deg) translateY(50%);
+}
+.iconosSociales ul li:hover a span:after{
+transform: rotateX(0deg) translateY(0);
+}
+
+.iconosSociales ul li:nth-child(1) a span:after{
+  background: #3b5999;
+  content: '\f39e';
+  color: white;
+}
+.iconosSociales ul li:nth-child(2) a span:after{
+  background: #55acee;
+  content: '\f099';
+  color: white;
+}
+.iconosSociales ul li:nth-child(3) a span:after{
+  background: #dd4b39;
+  content: '\f0d5';
+  color: white;
+}
+.iconosSociales ul li:nth-child(4) a span:after{
+  background: #0077B5;
+  content: '\f0e1';
+  color: white;
+}
+.iconosSociales ul li:nth-child(5) a span:after{
+  background: #e4405f;
+  content: '\f16d';
+  color: white;
+}
+.copyright{
+  margin-top: 20px;
+}
