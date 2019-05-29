@@ -217,12 +217,13 @@ function modificarCuenta($datos){
  // elseif(existeUsuario($datos["username"]) == existeUsuario($datos["username"])){
  //   $errores["username"] = "El usuario no puede ser el mismo";
  global $db;
- $stmt = $db->prepare("UPDATE usuarios SET nombre = :nombre, username = :username , password = :password WHERE id = :id ");
+ $stmt = $db->prepare("UPDATE usuarios SET nombre = :nombre, username = :username , password = :password, foto = :foto WHERE id = :id ");
 
  $stmt->bindValue(":id", $_GET['id'] );
  $stmt->bindValue(":nombre", $datos["nombre"]);
  $stmt->bindValue(":username", $datos["username"]);
  $stmt->bindValue(":password", $datos["password"]);
+ $stmt->bindValue(":foto", $datos["foto"]);
  $stmt->execute();
 }
 /*function listaUsuarios(){
@@ -243,6 +244,18 @@ function validarNuevoPerfil($datos){
   }
   if(strlen($datos["password"]) == 0){
     $errores["password"] = "El campo contraseña no puede estar vacío.";
+  }
+  if ($_FILES["foto"]["error"]!= 0 ) {
+    if ($_FILES["foto"]["error"]!= 4) {//aqui adentro el error no es tipo 0 ni 4
+      $errores["foto"] = "Hubo un error al acargar la imagen ";
+    }else {//aqui adentro el error no es tipo 0 PERO SI 4
+      //NO cargaste imagen se te assignara una por defecto
+    }
+  }else {//ACA SE CARGO BIEN LA FOTO
+    $ext = pathinfo($_FILES["foto"]["name"],PATHINFO_EXTENSION);
+    if ($ext!= "jpg" && $ext!= "jpeg" && $ext!= "png") {//verificar las extenciones posibles
+        $errores["foto"] = "la foto debe ser jpg ,jpeg o png <br>";
+    }
   }
 
     return $errores;
