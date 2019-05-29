@@ -1,22 +1,25 @@
 <?php
 require 'funciones.php';
-echo "ACA ESTA LA MAGIA <br>";
-echo "1) REscatar los datos de session<br>";
-echo "2)PErmitir -Cambiar la foto: Usar la variable global session para editar la foto//copiar del registro y de funciones.php <br>";
 
 $usuario = buscarClientePorUsuario($_SESSION["username"]);
-var_dump($usuario);
-echo "<hr>";
+//var_dump($usuario);
+//echo "<hr>";
 $errores = [];
 
 $nombreOk='';
-$emailOk='';
-$usernameOk='';//hay que validar que no haya otro con el mismo username
+$usernameOk='';
 
 
 if ($_POST) {
-
-  $errores = validarRegistro($_POST);
+  $errores = validarNuevoPerfil($_POST);
+  $nombreOk = trim($_POST["nombre"]);
+  $usernameOk = trim($_POST["username"]);
+  if (empty($errores)){//NO EXISTE O  ES VACIO)
+    modificarCuenta($_POST);
+    loguearUsuario($_POST["username"]);
+    header("Location:home.php");
+    exit;
+  }
 }
 
  ?>
@@ -34,89 +37,37 @@ if ($_POST) {
   <body>
 
     <div class="container">
-    <h2 class="text-center text-lg-left">MODIFICA  tus datos</h2>
+    <h2 class="text-center text-lg-left">Modifica  tus datos</h2>
 
-    <form action="registro.php" method="post" enctype="multipart/form-data"><!--A donde va ir cuando presione ENviar-->
-        <div class="form-group form-row">
+    <form action="editarPerfil.php?id=<?= $_GET['id'] ?>" method="post" enctype="multipart/form-data">
             <div class="form-group col-xs-12 col-sm-6">
-              <label for="nombre">Nombre Completo</label><!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
-              <input type="text" class="form-control" id="inputNombre" name="nombre" value='<?= $nombreOk ?>' placeholder="<?=$usuario["nombre"]  ?>" >
+              <label for="nombre">Modificar Nombre</label><!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
+              <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre" value='<?=$nombreOk ?>'  >
               <?php if(isset($errores["nombre"])): ?>
                 <span class="small text-danger"><?= $errores["nombre"] ?></span>
               <?php endif ?>
             </div>
             <div class="form-group col-xs-12 col-sm-6">
-              <label for="inputEmail4">Username</label>
+              <label for="inputEmail4">Modificar Usuario</label>
               <input type="text" class="form-control" id="inputEmail4" name="username" value='<?= $usernameOk ?>' placeholder="Username">
               <?php if(isset($errores["username"])): ?>
                 <span class="small text-danger"><?= $errores["username"] ?></span>
               <?php endif ?>
             </div>
-        </div>
-        <div class="form-group form-row">
+            <div class="form-group form-column">
             <div class="form-group col-xs-12 col-sm-6">
-              <label for="inputPassword4">Password</label>
-              <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password" required>
+              <label for="inputPassword4">Modificar Contraseña</label>
+              <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Contraseña" >
             </div>
-        </div>
-        <div class="form-group form-row">
-          <div class="col-xs-12 col-lg-12">
-            <label for="" >Género</label>
           </div>
-          <div class="form-check form-check-inline col-xs-12 col-lg-3">
-            <?php if(isset($_POST["gender"]) && $_POST["gender"] == "masc"): ?>
-              <input class="form-check-input" name="gender" type="radio" id="inlineRadio1" value="masc" checked>
-            <?php else: ?>
-            <input class="form-check-input" name="gender" type="radio" id="inlineRadio1" value="masc">
-          <?php endif ?>
-            <label class="form-check-label" for="inlineRadio1">Masculino</label>
-          </div>
-          <div class="form-check form-check-inline col-xs-12 col-lg-3">
-            <?php if(isset($_POST["gender"]) && $_POST["gender"] == "fem"): ?>
-                <input class="form-check-input" name="gender" type="radio" id="inlineRadio2" value="fem" checked>
-            <?php else: ?>
-              <input class="form-check-input" name="gender" type="radio" id="inlineRadio2" value="fem">
-            <?php endif; ?>
-            <label class="form-check-label" for="inlineRadio2">Femenino</label>
-          </div>
-          <div class="form-check form-check-inline col-xs-12 col-lg-3">
-            <?php if(isset($_POST["gender"]) && $_POST["gender"] == "other"): ?>
-                <input class="form-check-input" name="gender" type="radio" id="inlineRadio3" value="other" checked>
-            <?php else: ?>
-              <input class="form-check-input" name="gender" type="radio" id="inlineRadio3" value="other">
-            <?php endif; ?>
-            <label class="form-check-label" for="inlineRadio3">Prefiero no decirlo</label>
-          </div>
-          <?php if(isset($errores["gender"])): ?>
-            <span class="small text-danger"><?= $errores["gender"] ?></span>
-          <?php endif ?>
-        </div>
-        <div class="form-group form-row">
-            <div class="form-group col-xs-12">
-              <!--Falta el value que es el valor que viajara y el name con la posicion que tendra-->
-              Foto de Perfil  <input type="file"  id="inputNombre" name="foto" value="">
+        <div class="form-group form-column">
+            <div class="foto-perfil form-group col-xs-12 col-sm-6">
+              <label for="inputPassword4">Modificar Foto de perfil</label>
+              <br>
+              <input type="file"  id="inputNombre" name="foto" value="">
               <?php if(isset($errores["foto"])): ?>
                 <span class="small text-danger"><?= $errores["foto"] ?></span>
               <?php endif ?>
-            </div>
-        </div>
-        <div class="form-group form-row">
-            <div class="form-group col-xs-12 col-sm-6">
-                  <label for="pais">Pais</label>
-                  <select class="form-control" id="exampleFormControlSelect1" name="pais">
-                  <option value="argentina">Argentina</option>
-                  <option value="urugai">Urugays</option>
-                  <option value="brasil">Brasil</option>
-                  <option value="chile">Chile</option>
-                </select>
-            </div>
-            <div class="form-group col-xs-12 col-sm-6">
-                <label for="ciudad">Ciudad</label>
-                <select id="inputState" class="form-control" name="ciudad">
-                  <option value="Buenos Aires">Buenos Aires</option>
-                  <option value="La Rioja">La Rioja</option>
-                  <option value="Acassuso">Acassuso</option>
-                </select>
             </div>
         </div>
     <!--El checkbox de acepto los datos enviados-->
@@ -135,9 +86,6 @@ if ($_POST) {
           <button type="submit" class="btn btn-primary btn-formulario">Enviar</button>
     </form>
     </div>
-
-
-
 
   </body>
 </html>

@@ -207,11 +207,49 @@ function traerUsuarioLogueado(){
   }
 }
 
+function modificarCuenta($datos){
+ // $errores = [];
+ // if(strlen($datos["username"]) == 0){
+ //   $errores["username"] = "Por favor complete el campo modificar nombre.";
+ // } elseif(existeUsuario($datos["username"])){
+ //   $errores["username"] = "Este Username se encuentra registrado.";
+ // }
+ // elseif(existeUsuario($datos["username"]) == existeUsuario($datos["username"])){
+ //   $errores["username"] = "El usuario no puede ser el mismo";
+ global $db;
+ $stmt = $db->prepare("UPDATE usuarios SET nombre = :nombre, username = :username , password = :password WHERE id = :id ");
+
+ $stmt->bindValue(":id", $_GET['id'] );
+ $stmt->bindValue(":nombre", $datos["nombre"]);
+ $stmt->bindValue(":username", $datos["username"]);
+ $stmt->bindValue(":password", $datos["password"]);
+ $stmt->execute();
+}
 /*function listaUsuarios(){
   $json = file_get_contents("db.json");
   $array = json_decode($json, true);
 
   return $array["usuarios"];
 }*/
+function validarNuevoPerfil($datos){
+  $errores=[];
+  if(strlen($datos["nombre"]) == 0){
+    $errores["nombre"] = "Por favor complete el campo nombre.";
+  } else if(ctype_alpha($datos["nombre"]) == false){
+    $errores["nombre"] = "El nombre debe contener solo letras";
+  }
+  if(existeUsuario($datos["username"])){
+    $errores["username"] = "El usuario ya se encuentra registrado.";
+  }
+  if(strlen($datos["password"]) == 0){
+    $errores["password"] = "El campo contraseña no puede estar vacío.";
+  }
+
+    return $errores;
+}
+
+
+
+
 
  ?>
