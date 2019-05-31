@@ -1,10 +1,4 @@
   <footer>
-    <div class="caja1-footer d-none d-sm-block">
-      <p class="texto-footer">Contactanos: <br> telefono: 1123452244 <br>Ubicanos en: <br>Calle los Olvidados de Dios 666 </p>
-    </div>
-    <div class="caja2-footer d-none d-sm-block">
-      <p class="texto-footer">Contactanos: <br> telefono: 1123452244 <br>Ubicanos en: <br>Calle los Olvidados de Dios 666 </p>
-    </div>
     <div class="social">
       <div class="text-social">
           <p>Siguenos en</p>
@@ -39,6 +33,10 @@
           </li>
         </ul>
       </div>
+
+      <p class="copyright">  Copyright  &copy; Todos los Derechos Reservados <p>
+
+
     </div>
 
   </footer>

@@ -6,8 +6,9 @@ $usuario = buscarClientePorUsuario($_SESSION["username"]);
 //echo "<hr>";
 $errores = [];
 
-$nombreOk='';
-$usernameOk='';
+$nombreOk=$usuario['nombre'];
+$usernameOk=$usuario['username'];
+$passwordOk="";
 
 
 if ($_POST) {
@@ -16,7 +17,12 @@ if ($_POST) {
   $usernameOk = trim($_POST["username"]);
 
   if (empty($errores)){//NO EXISTE O  ES VACIO)
-    $_POST["password"] = password_hash($_POST["password"],PASSWORD_DEFAULT);
+
+    if ($datos["password"]=="") {
+    }else {
+        $_POST["password"] = password_hash($_POST["password"],PASSWORD_DEFAULT);
+    }
+
     if ($_FILES["foto"]["error"]== 4 ) {  //se queda con la foto que tenga
 
     }else {
@@ -45,6 +51,7 @@ if ($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/editarPerfil.css">
     <link rel="stylesheet" href="css/footer.css">
     <title>Edicion</title>
   </head>
@@ -71,7 +78,7 @@ if ($_POST) {
 
         <div class="form-group col-xs-12 col-sm-6">
           <label for="inputPassword4">Modificar Contraseña</label>
-          <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Contraseña" >
+          <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Contraseña"  >
           <?php if(isset($errores["password"])): ?>
             <span class="small text-danger"><?= $errores["password"] ?></span>
           <?php endif ?>

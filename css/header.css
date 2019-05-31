@@ -20,9 +20,10 @@ a{
 
 header{
   height: 90px;
-  background: rgba(59, 199, 195, 0.75);
+  background-color: #adb5bd;
   padding: 0 20px;
-  color: #fff;
+  color: black;
+  margin-bottom: 10px
 }
 
 .logo{
@@ -75,7 +76,10 @@ header{
   visibility: hidden;
   z-index: -1111;
 }
-
+.btn-color{
+  background-color: deeppink;
+  border-color: deeppink;
+}
 
 
 @media screen and (max-width:800px) {

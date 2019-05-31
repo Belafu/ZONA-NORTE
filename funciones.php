@@ -217,12 +217,16 @@ function modificarCuenta($datos){
  // elseif(existeUsuario($datos["username"]) == existeUsuario($datos["username"])){
  //   $errores["username"] = "El usuario no puede ser el mismo";
  global $db;
- $stmt = $db->prepare("UPDATE usuarios SET nombre = :nombre, username = :username , password = :password, foto = :foto WHERE id = :id ");
+  if ($datos["password"]=="") {
+    $stmt = $db->prepare("UPDATE usuarios SET nombre = :nombre, username = :username , foto = :foto WHERE id = :id ");
+  }else {
+    $stmt = $db->prepare("UPDATE usuarios SET nombre = :nombre, username = :username , password = :password, foto = :foto WHERE id = :id ");
+     $stmt->bindValue(":password", $datos["password"]);
+  }
 
  $stmt->bindValue(":id", $_GET['id'] );
  $stmt->bindValue(":nombre", $datos["nombre"]);
  $stmt->bindValue(":username", $datos["username"]);
- $stmt->bindValue(":password", $datos["password"]);
  $stmt->bindValue(":foto", $datos["foto"]);
  $stmt->execute();
 }
@@ -239,12 +243,9 @@ function validarNuevoPerfil($datos){
   } else if(ctype_alpha($datos["nombre"]) == false){
     $errores["nombre"] = "El nombre debe contener solo letras";
   }
-  if(existeUsuario($datos["username"])){
-    $errores["username"] = "El usuario ya se encuentra registrado.";
-  }
-  if(strlen($datos["password"]) == 0){
+  /*if(strlen($datos["password"]) == 0){
     $errores["password"] = "El campo contraseña no puede estar vacío.";
-  }
+  }*/
   if ($_FILES["foto"]["error"]!= 0 ) {
     if ($_FILES["foto"]["error"]!= 4) {//aqui adentro el error no es tipo 0 ni 4
       $errores["foto"] = "Hubo un error al acargar la imagen ";

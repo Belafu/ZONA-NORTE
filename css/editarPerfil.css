@@ -21,6 +21,8 @@ h2{
   padding-bottom: 5px;
 }
 .container{
-  background-color: lightgrey;
+  background-color:lightgrey;
   align-items: center;
+  margin-top: 20px;
+  padding-top: 10px
 }

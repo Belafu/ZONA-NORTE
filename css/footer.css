@@ -2,12 +2,11 @@
 
 /*footer*/
 footer{
-  background: rgba(238, 252, 81, 0.6);
+  background-color: #adb5bd;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
-  padding-bottom: 30px;
   padding-top: 20px;
   margin-top: 20px;
 }
@@ -20,7 +19,6 @@ footer{
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(255, 88, 52, 0.8);
 }
 .text-social{
   justify-content: center;
@@ -33,7 +31,7 @@ footer{
 .iconosSociales ul{
   top: 50%;
   left: 50%;
-  transform: translate(-50%,*50%);
+  transform: translate(-50%,);
   margin: 0;
   padding: 0;
   display: flex;
@@ -114,4 +112,7 @@ transform: rotateX(0deg) translateY(0);
   background: #e4405f;
   content: '\f16d';
   color: white;
+}
+.copyright{
+  margin-top: 20px;
 }

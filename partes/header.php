@@ -26,6 +26,7 @@ loguearUsuario($usuario["username"]);
         <a href="registro.php">Registro</a>
         <a class="btn btn-success" href="login.php">Login</a>
       <?php endif; ?>
+      <a href="carrito.php"><i class="fas fa-shopping-cart"></i></a>
       <label for="chk" class="hide-menu-btn">
         <i class="fas fa-times"></i>
       </label>
