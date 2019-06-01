@@ -8,7 +8,7 @@ $errores = [];
 
 $nombreOk=$usuario['nombre'];
 $usernameOk=$usuario['username'];
-$passwordOk="";
+//$passwordOk="";
 
 
 if ($_POST) {
@@ -16,19 +16,13 @@ if ($_POST) {
   $nombreOk = trim($_POST["nombre"]);
   $usernameOk = trim($_POST["username"]);
 
-  if (empty($errores)){//NO EXISTE O  ES VACIO)
-
-    if ($datos["password"]=="") {
-    }else {
-        $_POST["password"] = password_hash($_POST["password"],PASSWORD_DEFAULT);
+  if (empty($errores)){
+    if (!empty($_POST["password"])) {    //  echo "la contraseña es no vacio|";
+      $_POST["password"] = password_hash($_POST["password"],PASSWORD_DEFAULT);
     }
-
     if ($_FILES["foto"]["error"]== 4 ) {  //se queda con la foto que tenga
 
     }else {
-      if ($usuario["foto"] != "img/img-defecto.jpg") {//solo si tu imagen no es la que esta por defecto
-        unlink($usuario["foto"]);//eliminar la antigua foto
-      }
       $ext= pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
       $usuario["foto"]= "img/" . $_POST["username"]. "." . $ext;
       move_uploaded_file($_FILES["foto"]["tmp_name"], "img/" . $_POST["username"]. "." . $ext);
@@ -79,9 +73,6 @@ if ($_POST) {
         <div class="form-group col-xs-12 col-sm-6">
           <label for="inputPassword4">Modificar Contraseña</label>
           <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Contraseña"  >
-          <?php if(isset($errores["password"])): ?>
-            <span class="small text-danger"><?= $errores["password"] ?></span>
-          <?php endif ?>
         </div>
 
         <div class="form-group form-column">

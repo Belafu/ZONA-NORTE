@@ -3,7 +3,7 @@
 //$dsn = "mysql:host=localhost;dbname=blend_tm01;port=3306";
 $dsn = "mysql:host=127.0.0.1;dbname=tp_db;port=3306";
 $user = "root";
-$pass = "root";//EN MI COMPU 123456 // en digital house "root"
+$pass = "123456";//EN MI COMPU 123456 // en digital house "root"
 
 
 

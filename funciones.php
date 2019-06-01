@@ -262,8 +262,4 @@ function validarNuevoPerfil($datos){
     return $errores;
 }
 
-
-
-
-
  ?>
