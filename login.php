@@ -1,7 +1,8 @@
 <?php
-require_once "funciones.php";
+include "Modelo/init.php";
+//require_once "funciones.php";
 
-if(usuarioLogueado()){
+if($auth->usuarioLogueado()){//borrar le quite el bottom
   header("Location:home.php");
   exit;
 }
@@ -11,13 +12,13 @@ $errores = [];
 if($_POST){
 
     $userOK = $_POST["username"];
-    $errores = validarLogin($_POST);
+    $errores = Validador::validarLogin($_POST);
 
     if(empty($errores)){
         if (isset($_POST["recordar"])) {
             setcookie("username",$userOK,time()+15);//15 segundos
         }
-      loguearUsuario($_POST["username"]);
+      $auth->loguearUsuario($_POST["username"]);
 
       //var_dump($_SESSION);NO SE PORQUE SI DEJO ESTO SALE UN WARNIGN??
       header("Location:home.php");//redirigimos a home

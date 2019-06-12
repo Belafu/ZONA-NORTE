@@ -46,15 +46,15 @@ function validarRegistro($datos){
     }
 
 //VALIDACION DE LA IMAGEN
-    if ($_FILES["foto"]["error"]!= 0 ) {
-      if ($_FILES["foto"]["error"]!= 4) {//aqui adentro el error no es tipo 0 ni 4
-        $errores["foto"] = "Hubo un error al acargar la imagen ";
+    if ($_FILES["avatar"]["error"]!= 0 ) {
+      if ($_FILES["avatar"]["error"]!= 4) {//aqui adentro el error no es tipo 0 ni 4
+        $errores["avatar"] = "Hubo un error al acargar la imagen ";
       }else {//aqui adentro el error no es tipo 0 PERO SI 4
       }
     }else {//ACA SE CARGO BIEN LA FOTO
-      $ext = pathinfo($_FILES["foto"]["name"],PATHINFO_EXTENSION);
+      $ext = pathinfo($_FILES["avatar"]["name"],PATHINFO_EXTENSION);
       if ($ext!= "jpg" && $ext!= "jpeg" && $ext!= "png") {//verificar las extenciones posibles
-          $errores["foto"] = "la foto debe ser jpg ,jpeg o png <br>";
+          $errores["avatar"] = "la foto debe ser jpg ,jpeg o png <br>";
       }
     }
 
@@ -172,15 +172,15 @@ function validarLogin($datos){
   $errores = [];
   if(strlen($datos["username"]) == 0){
     $errores["username"] = "Por favor complete el campo email.";
-  } elseif(!existeUsuario($datos["username"])){
+  } elseif(!$dbAll->existeUsuario($datos["username"])){
     $errores["username"] = "Este Username no se encuentra registrado.";
   }
 
   if(strlen($datos["password"]) == 0){
     $errores["password"] = "El campo contraseña no puede estar vacío.";
   } else {
-    $usuario = buscarClientePorUsuario($datos["username"]);
-    if(!password_verify($datos["password"], $usuario["password"])){
+    $usuario = $dbAll->buscarClientePorUsuario($datos["username"]);
+    if(!password_verify($datos["password"], $usuario->getPass())){
       $errores["password"] = "La contraseña es incorrecta.";
     }
   }

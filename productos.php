@@ -1,6 +1,7 @@
 <?php
-require 'funciones.php';
-$usuario = traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS DATOS
+include "Modelo/init.php";
+//require 'funciones.php';
+$usuario = $dbAll->traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS DATOS
 
 ?>
 

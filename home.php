@@ -1,8 +1,11 @@
 <?php
-require 'funciones.php';
-//var_dump($_COOKIE,$_SESSION);para ver las cookies y los session
-$usuario = traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS DATOS
+include "Modelo/init.php";
+//require 'funciones.php';
+
+$usuario = $dbAll->traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS DATOS
 //si cierro el navegador el $_SESSION se destruye => $usuario == false
+//var_dump($usuario);
+
 ?>
 
 <!DOCTYPE html>

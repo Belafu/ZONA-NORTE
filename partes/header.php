@@ -1,9 +1,13 @@
 <?php
+
+
+
 if (isset($_COOKIE["username"])) {
 //loguearUsuario($_COOKIE["username"]);
-$usuario = buscarClientePorUsuario($_COOKIE["username"]);
-loguearUsuario($usuario["username"]);
+$usuario = $dbAll->buscarClientePorUsuario($_COOKIE["username"]);
+$auth->loguearUsuario($usuario["username"]);
 }
+
 
  ?>
 
@@ -18,9 +22,9 @@ loguearUsuario($usuario["username"]);
     <ul class="menu-header">
       <a href="home.php">Home</a>
       <a href="productos.php">Productos</a>
-      <?php if (usuarioLogueado()): ?>
-        <img class="avatar" src="<?= $usuario["foto"] ?>" alt="">
-        <a href="editarPerfil.php?id=<?= $usuario['id'] ?>"><span class="nombre-header btn btn-color"><?= $usuario["username"] ?></span></a>
+      <?php if ($auth->usuarioLogueado()): ?>
+        <img class="avatar" src="<?= $usuario->getAvatar() ?>" alt="">
+        <a href="editarPerfil.php?id=<?= $usuario->getId() ?>"><span class="nombre-header btn btn-color"><?= $usuario->getUsername() ?></span></a>
         <a class="btn btn-danger" href="logout.php">Logout</a>
       <?php else: ?>
         <a href="registro.php">Registro</a>

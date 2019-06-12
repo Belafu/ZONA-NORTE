@@ -1,7 +1,8 @@
 <?php
-include "funciones.php";
+include "Modelo/init.php";
+//include "funciones.php";
 
-if(usuarioLogueado()){
+if($auth->usuarioLogueado()){
   header("Location:home.php");
   exit;
 }
@@ -14,26 +15,28 @@ $usernameOk='';//hay que validar que no haya otro con el mismo username
 
 
 if ($_POST) {
+  $errores = Validador::validarRegistro($_POST);
+  var_dump($errores);
 
-
-  $errores = validarRegistro($_POST);
 
   $nombreOk = trim($_POST["nombre"]);
   $emailOk = trim($_POST["email"]);
   $usernameOk = trim($_POST["username"]);
   if(empty($errores)){//NO EXISTE O  ES VACIO
-      $usuario = armarUsuario();
+      $usuario = new Usuario($_POST);//armarUsuario();
+
       if ($_FILES["foto"]["error"]== 4) {
-          $usuario["foto"]= "img/img-defecto.jpg";
-          guardarUsuario($usuario);
+        $usuario->setAvatar("img/img-defecto.jpg");
+        $dbAll->guardarUsuario($usuario);
 
       }else {
         $ext= pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
-        $usuario["foto"]= "img/" . $_POST["username"]. "." . $ext;
+        $usuario->setAvatar("img/" . $_POST["username"]. "." . $ext);
+
         move_uploaded_file($_FILES["foto"]["tmp_name"], "img/" . $_POST["username"]. "." . $ext);
-        guardarUsuario($usuario);
+        $dbAll->guardarUsuario($usuario);
       }
-      loguearUsuario($usuario["username"]);
+      $auth->loguearUsuario($usuario["username"]);
       header('Location: felicitaciones.php');
       exit;
 
