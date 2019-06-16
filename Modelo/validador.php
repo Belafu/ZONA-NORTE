@@ -48,11 +48,14 @@ class Validador {
 
       //VALIDACION DE LA IMAGEN
       if ($_FILES["foto"]["error"]!= 0 ) {
-              $errores["foto"] = "Hubo un error al acargar la imagen ";
+        if ($_FILES["foto"]["error"]!= 4) {
+          $errores["foto"] = "Hubo un error al acargar la imagen ";
+        }
+        //Cargaste una imagen se te pondra la que elegiste
       }else {//ACA SE CARGO BIEN LA FOTO
             $ext = pathinfo($_FILES["foto"]["name"],PATHINFO_EXTENSION);
             if ($ext!= "jpg" && $ext!= "jpeg" && $ext!= "png") {//verificar las extenciones posibles
-                $errores["foto"] = "la foto debe ser jpg ,jpeg o png <br>";
+                $errores["foto"] = "la foto debe ser jpg ,jpeg o png";
             }
       }
 
@@ -81,20 +84,24 @@ class Validador {
     return $errores;
   }
 
-  public function validarNuevoPerfil($datos){
+  public static function validarNuevoPerfil($datos){
     $errores=[];
     if(strlen($datos["nombre"]) == 0){
       $errores["nombre"] = "Por favor complete el campo nombre.";
     } else if(ctype_alpha($datos["nombre"]) == false){
       $errores["nombre"] = "El nombre debe contener solo letras";
     }
-
-    if ($_FILES["avatar"]["error"]!= 0 ) {
-            $errores["avatar"] = "Hubo un error al acargar la imagen ";
+//RECORDAR 0 es cargo bien | 4 es que no se cargo un foto
+//tube muchos problemas en esta pr el 4:esta version es la mejor que encontre NO HAY OTRA
+    if ($_FILES["foto"]["error"]!= 0 ) {
+      if ($_FILES["foto"]["error"]!= 4) {//aqui adentro el error no es tipo 0 ni 4
+        $errores["foto"] = "Hubo un error al acargar la imagen ";
+      }
+        //NO cargaste imagen se te mantendra con la que ya tienes
     }else {//ACA SE CARGO BIEN LA FOTO
-          $ext = pathinfo($_FILES["avatar"]["name"],PATHINFO_EXTENSION);
+          $ext = pathinfo($_FILES["foto"]["name"],PATHINFO_EXTENSION);
           if ($ext!= "jpg" && $ext!= "jpeg" && $ext!= "png") {//verificar las extenciones posibles
-              $errores["avatar"] = "la foto debe ser jpg ,jpeg o png <br>";
+              $errores["foto"] = "la foto debe ser jpg ,jpeg o png <br>";
           }
     }
 

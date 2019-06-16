@@ -1,36 +1,45 @@
 <?php
-require 'funciones.php';
+include "Modelo/init.php";
+//require 'funciones.php';
 
-$usuario = buscarClientePorUsuario($_SESSION["username"]);
+$usuario = $dbAll->buscarClientePorUsuario($_SESSION["username"]);
 //var_dump($usuario);
-//echo "<hr>";
 $errores = [];
 
-$nombreOk=$usuario['nombre'];
-$usernameOk=$usuario['username'];
-//$passwordOk="";
+$nombreOk = $usuario->getName();
+$usernameOk = $usuario->getUsername();
+
 
 
 if ($_POST) {
-  $errores = validarNuevoPerfil($_POST);
+  $errores = Validador::validarNuevoPerfil($_POST);
   $nombreOk = trim($_POST["nombre"]);
   $usernameOk = trim($_POST["username"]);
 
   if (empty($errores)){
-    if (!empty($_POST["password"])) {    //  echo "la contraseña es no vacio|";
+    if (!empty($_POST["password"])) {    //  echo "la contraseña se Cambio|Osea escribio otra|";
       $_POST["password"] = password_hash($_POST["password"],PASSWORD_DEFAULT);
     }
-    if ($_FILES["foto"]["error"]== 4 ) {  //se queda con la foto que tenga
-
-    }else {
+    if ($_FILES["foto"]["error"]!= 4 ) {  // Se  cargo alguna una foto
       $ext= pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
-      $usuario["foto"]= "img/" . $_POST["username"]. "." . $ext;
+      $usuario->setAvatar("img/" . $_POST["username"]. "." . $ext);
       move_uploaded_file($_FILES["foto"]["tmp_name"], "img/" . $_POST["username"]. "." . $ext);
+    }else {//si NO carge ninguna foto
+      //si cambio el username ,se debe cambiar el nombre de mi foto
+      $extActual= pathinfo($usuario->getAvatar(), PATHINFO_EXTENSION);
+      if ($_POST["username"] != $usuario->getUsername()) {
+        rename($usuario->getAvatar(), "img/" . $_POST["username"]. "." . $extActual);
+        $usuario->setAvatar("img/" . $_POST["username"]. "." . $extActual);
+        //queda a criterio eliminar la imagen de la antigua foto dado que ya no usa este username estaria disponible, y se podria usar .Aunque creo que si se cambia se sobreescribe , pero en el registro con foto creo que tambien se sobreescribe .
+        //DA igual creo .Lo unico que pasaria es que estaria flotando
+      }
     }
-    $_POST["foto"]=$usuario["foto"];
-    modificarCuenta($_POST);
 
-    loguearUsuario($_POST["username"]);
+
+    $_POST["foto"]=$usuario->getAvatar();
+    $dbAll->modificarCuenta($_POST);
+
+    $auth->loguearUsuario($_POST["username"]);
     header("Location:home.php");
     exit;
   }

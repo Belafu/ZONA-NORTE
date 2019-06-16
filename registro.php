@@ -12,17 +12,17 @@ $errores = [];
 $nombreOk='';
 $emailOk='';
 $usernameOk='';//hay que validar que no haya otro con el mismo username
-
+//var_dump($_POST);
 
 if ($_POST) {
   $errores = Validador::validarRegistro($_POST);
-  var_dump($errores);
 
 
   $nombreOk = trim($_POST["nombre"]);
   $emailOk = trim($_POST["email"]);
   $usernameOk = trim($_POST["username"]);
   if(empty($errores)){//NO EXISTE O  ES VACIO
+      $_POST["foto"]="";
       $usuario = new Usuario($_POST);//armarUsuario();
 
       if ($_FILES["foto"]["error"]== 4) {
@@ -36,7 +36,7 @@ if ($_POST) {
         move_uploaded_file($_FILES["foto"]["tmp_name"], "img/" . $_POST["username"]. "." . $ext);
         $dbAll->guardarUsuario($usuario);
       }
-      $auth->loguearUsuario($usuario["username"]);
+      $auth->loguearUsuario($_POST["username"]);
       header('Location: felicitaciones.php');
       exit;
 
