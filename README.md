@@ -2,11 +2,8 @@
 tp ecomerce Darkcode
 
 Pasos para instalar el Proyecto
-Descargar XAMP
-Descargar el repositorio, en la carpeta htdocs
+Descargar XAMP y prender el apache.
+Clonar el proyecto dentro de la carpeta htdocs
+Correr el scrip tp_db.sql que crea una base de datos desde MySQL Workbench
+Visualisar el proyecto en un navegador web (home.php)
 
-Ejecutar composer install para que composer descargue todas las carpetas y paquetes necesarios para correr Laravel.
-Revisar que exista archivo .env. Si no está copiar el archivo .env-example y eliminar -example
-Chequear que tenga valores la posicion APP_KEY. Si no está hay que crearla con el comando php artisan key:generate
-Revisar la información de conexión a la db. Son las posicones DB_ .
-Tener Creada una base de datos llamada darkcode o volver al punto 6.
