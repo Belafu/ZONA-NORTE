@@ -7,3 +7,7 @@ tp ecomerce Darkcode
 3. Correr el scrip tp_db.sql que crea una base de datos desde MySQL Workbench
 4. Visualisar el proyecto en un navegador web (home.php)
 
+## Configuracion de la base de Datos en MySQL Workbench
+1. En el archivo pdo.php verifique los siguientes campos:
+2. $user = "root";//Use el de su computadora
+3. $pass = "root";//Use el de su computadora
