@@ -1,10 +1,8 @@
 <?php
 session_start();
-echo "RELLENASTE CORRECTAMENTE TODOS TUS DATOS";
+//var_dump($_POST);
+//var_dump($_SESSION);
 
-var_dump($_POST);
-var_dump($_SESSION);
-//NO FUNCIONA COMO ACCEDEMOS A LOS DATOS
 
  ?>
 <!DOCTYPE html>
@@ -14,6 +12,9 @@ var_dump($_SESSION);
     <title>BIEN</title>
   </head>
   <body>
+    <h2><?= $_SESSION['username'] ?></h2>
+    <p>TUS DATOS FUERON REGISTRADOS CORRECTAMENTE</p>
     <a class="btn btn-success" href="home.php">IR AL HOME</a>
+
   </body>
 </html>

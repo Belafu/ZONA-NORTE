@@ -131,7 +131,14 @@ $usuario = $dbAll->traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS 
       </section>
 
     </div>
-    <marquee class="marque"><img class="fotos-marque" src="https://fakeimg.pl/300x100/"><img class="fotos-marque" src="https://fakeimg.pl/300x100/"><img class="fotos-marque" src="https://fakeimg.pl/300x100/"><img class="fotos-marque" src="https://fakeimg.pl/300x100/"><img class="fotos-marque" src="https://fakeimg.pl/300x100/"><img class="fotos-marque" src="https://fakeimg.pl/300x100/"></marquee>
+    <marquee class="marque">
+      <img class="fotos-marque" src="img/te1.jpg">
+      <img class="fotos-marque" src="img/te2.jpg">
+      <img class="fotos-marque" src="img/te3.jpg">
+      <img class="fotos-marque" src="img/te4.jpg">
+      <img class="fotos-marque" src="img/ant1.jpg">
+      <img class="fotos-marque" src="img/te1.jpg">
+    </marquee>
 
   <?php include("partes/footer.php"); ?>
 

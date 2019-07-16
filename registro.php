@@ -141,7 +141,7 @@ if ($_POST) {
                 <label for="pais">Pais</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="pais">
                 <option value="argentina">Argentina</option>
-                <option value="urugai">Urugays</option>
+                <option value="uruguay">Uruguay</option>
                 <option value="brasil">Brasil</option>
                 <option value="chile">Chile</option>
               </select>
