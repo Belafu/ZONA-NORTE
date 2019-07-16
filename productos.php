@@ -37,25 +37,25 @@ $usuario = $dbAll->traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS 
               <img class="product-img-ofertas img-fluid" src="img/mouse.png" alt="" width="480px" height="400px">
               <h2>Mouse 1 Gamer</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-              <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+              <a href="carrito.php?img=img/mouse.png" class="btn btn-primary">COMPRAR</a>
           </article>
           <article class="product-logo">
               <img class="product-img-ofertas img-fluid" src="img/mouse2.png" alt="" width="480px" height="400px">
               <h2>Mouse 2 Gamer</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-              <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+              <a href="carrito.php?img=img/mouse2.png" class="btn btn-primary">COMPRAR</a>
           </article>
           <article class="product-logo">
               <img class="product-img-ofertas img-fluid" src="img/mouse3.png" alt="" width="480px" height="400px">
               <h2>Mouse 3 Gamer</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-              <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+              <a href="carrito.php?img=img/mouse3.png" class="btn btn-primary">COMPRAR</a>
           </article>
           <article class="product-logo">
               <img class="product-img-ofertas img-fluid" src="img/mouse.png" alt="" width="480px" height="400px">
               <h2>Mouse 4 Gamer</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-              <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+              <a href="carrito.php?img=img/mouse.png" class="btn btn-primary">COMPRAR</a>
           </article>
       </div>
 
@@ -66,25 +66,25 @@ $usuario = $dbAll->traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS 
                 <img class="product-img-ofertas img-fluid" src="img/teclado.png" alt="" width="480px" height="400px">
                 <h2>Teclado 1 Gamer</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+                <a href="carrito.php?img=img/teclado.png" class="btn btn-primary">COMPRAR</a>
             </article>
             <article class="product-logo">
                 <img class="product-img-ofertas img-fluid" src="img/teclado2.png" alt="" width="480px" height="400px">
                 <h2>Teclado 2 Gamer</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+                <a href="carrito.php?img=img/teclado2.png" class="btn btn-primary">COMPRAR</a>
             </article>
             <article class="product-logo">
                 <img class="product-img-ofertas img-fluid" src="img/teclado3.png" alt="" width="480px" height="400px">
                 <h2>Teclado 3 Gamer</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+                <a href="carrito.php?img=img/teclado3.png" class="btn btn-primary">COMPRAR</a>
             </article>
             <article class="product-logo">
                 <img class="product-img-ofertas img-fluid" src="img/teclado.png" alt="" width="480px" height="400px">
                 <h2>Teclado 4 Gamer</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+                <a href="carrito.php?img=img/teclado.png" class="btn btn-primary">COMPRAR</a>
             </article>
         </div>
 
@@ -95,25 +95,25 @@ $usuario = $dbAll->traerUsuarioLogueado();//SIERVE PARA TRAER SU IMAGEN Y DEMAS 
                   <img class="product-img-ofertas img-fluid" src="img/auricular.png" alt="" width="480px" height="400px">
                   <h2>Auricular 1 Gamer</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                  <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+                  <a href="carrito.php?img=img/auricular.png" class="btn btn-primary">COMPRAR</a>
               </article>
               <article class="product-logo">
                   <img class="product-img-ofertas img-fluid" src="img/auricular2.png" alt="" width="480px" height="400px">
                   <h2>Auricular 2 Gamer</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                  <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+                  <a href="carrito.php?img=img/auricular2.png" class="btn btn-primary">COMPRAR</a>
               </article>
               <article class="product-logo">
                   <img class="product-img-ofertas img-fluid" src="img/auricular3.png" alt="" width="480px" height="400px">
                   <h2>Auricular 3 Gamer</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                  <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+                  <a href="carrito.php?img=img/auricular3.png" class="btn btn-primary">COMPRAR</a>
               </article>
               <article class="product-logo">
                   <img class="product-img-ofertas img-fluid" src="img/auricular.png" alt="" width="480px" height="400px">
                   <h2>Auricular 4 Gamer</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                  <a href="carrito.php" class="btn btn-primary">COMPRAR</a>
+                  <a href="carrito.php?img=img/auricular.png" class="btn btn-primary">COMPRAR</a>
               </article>
           </div>
           <marquee class="marque">
