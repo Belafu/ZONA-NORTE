@@ -13,7 +13,7 @@
 3. $pass = "root";//Use el de su computadora
 
 
-<h2 align="center" width="20px">Sprints del Trabajo practico</h2>
+<h1 align="center" >Sprints del Trabajo practico</h1>
 
 ### Sprint 1
 Fecha de entrega: Viernes 17/5
