@@ -12,8 +12,8 @@
 2. $user = "root";//Use el de su computadora
 3. $pass = "root";//Use el de su computadora
 
-
-<h1 align="center" >Sprints del Trabajo practico</h1>
+&nbsp;
+<h1 align="center" >SPRINTS DEL TP</h1>
 
 ### Sprint 1
 Fecha de entrega: Viernes 17/5
