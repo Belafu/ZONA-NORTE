@@ -32,3 +32,11 @@ Fecha de entrega: Miércoles 3/7
 Siguiendo la guía de migración que hicimos en clase cada proyecto deberá migrar a Programación Orientada a Objetos. Es decir que las funciones que hoy tenemos dentro del archivo funciones.php deben quedar distribuidas como métodos de clases. Si todo está migrado correctamente al eliminar el archivo funciones.php el sistema seguirá funcionando sin problemas.
 
 Las instancias a migrar son: registro, login y home page para identificar que un usaurio está logueado.
+
+### Sprint 4 - Migracion a Laravel
+Fecha de entrega: Lunes 5/8
+#### Objetivo
+El objetivo del sprint consiste en migrar todo el proyecto a Laravel un framework de PHP para escalar el proyecto y aumentarle funcionalidad.
+
+Recordemos que Laravel usa MVC, Link del proyecto:
+[Migracion Laravel](https://github.com/gianpieryup/Darkcode)
