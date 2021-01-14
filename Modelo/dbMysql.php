@@ -11,9 +11,8 @@ class DbMysql extends Db
   {
     //Gestionar la conexión a DB
     $dsn = "mysql:host=localhost;dbname=tp_db;port=3306";
-    //$dsn = "mysql:host=127.0.0.1;dbname=movies_db;port=3306";
     $user = "root";
-    $pass = "123456";
+    $pass = "";
 
     //$db = new PDO($dsn, $user, $pass);
 

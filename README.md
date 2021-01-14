@@ -3,14 +3,23 @@
 
 ## Pasos para instalar el Proyecto
 1. Descargar XAMP y prender el apache.
-2. Clonar el proyecto dentro de la carpeta htdocs
-3. Correr el scrip tp_db.sql que crea una base de datos desde MySQL Workbench
-4. Visualisar el proyecto en un navegador web (home.php)
+2. Clonar el proyecto dentro de la carpeta <span style="background:yellow;">C:\xampp\htdocs</span>
+3. Correr el scrip `tp_db.sql` que crea una base de datos desde MySQL Workbench
+4. En caso de no usar MySQL con <span style="background:yellow;">PHPMyAdmin</span> en `http://localhost/phpmyadmin/`
+5. Visualizar el proyecto en un navegador web
 
 ## Configuracion de la base de Datos en MySQL Workbench
-1. En el archivo `dbMysql.php` en el  __construct  de esta clase verifique los siguientes campos:
-2. $user = "root";//Use el de su computadora
-3. $pass = "root";//Use el de su computadora
+
+- En el archivo `Modelo\dbMysql.php` modificar las variables.
+
+````php
+function __construct()
+{   //Gestionar la conexión a DB
+	$dsn = "mysql:host=localhost;dbname=tp_db;port=3306";
+	$user = "root";
+	$pass = "";
+}
+````
 
 &nbsp;
 <h1 align="center" >SPRINTS DEL TP</h1>
